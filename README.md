@@ -18,6 +18,11 @@
 │   └── HelloWorld.txt
 ├── Hw2_DeepDreamGenerator/
 │   └── HW2.pdf
+├── Appendix/
+│   └── HW2/
+│       ├── dream_snn943ksxg4 (1).jpg
+│       ├── dream_snn943ksxg4.jpg
+│       └── maxresdefault.jpg
 ├── README.md              # 你現在看到的這個檔案
 └── .gitignore
 ```
@@ -28,6 +33,14 @@
 - 💻 熟悉版本控制系統 (Git & GitHub)
 - 🚀 建立解決問題的邏輯思維
 - 📖 理解計算機科學基礎知識
+
+## 📎 附錄資料夾 (Appendix)
+
+`Appendix/` 資料夾包含作業的相關補充資料：
+
+- **HW2/**: Deep Dream Generator 相關圖片檔案
+  - `dream_snn943ksxg4.jpg` & `dream_snn943ksxg4 (1).jpg`: Deep Dream 生成圖片
+  - `maxresdefault.jpg`: 參考圖片
 
 ## 📝 作業列表
 
