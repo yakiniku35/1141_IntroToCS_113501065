@@ -14,12 +14,12 @@
 
 ```
 1141_IntroToCS_113501065/
-├── HW1_Github/             # 第一次作業 - GitHub 入門
-│   └── HelloWorld.txt      # 經典的 Hello World!
-├── Hw2_DeepDreamGenerator/ # 第二次作業 - Deep Dream Generator
-│   └── HW2.pdf            # 作業說明文件
+├── HW1_Github/
+│   └── HelloWorld.txt
+├── Hw2_DeepDreamGenerator/
+│   └── HW2.pdf
 ├── README.md              # 你現在看到的這個檔案
-└── .gitignore            # Git 忽略檔案設定
+└── .gitignore
 ```
 
 ## 🎯 課程目標
