@@ -14,10 +14,12 @@
 
 ```
 1141_IntroToCS_113501065/
-├── HW1_Github/          # 第一次作業 - GitHub 入門
-│   └── HelloWorld.txt   # 經典的 Hello World!
-├── README.md           # 你現在看到的這個檔案
-└── .gitignore         # Git 忽略檔案設定
+├── HW1_Github/             # 第一次作業 - GitHub 入門
+│   └── HelloWorld.txt      # 經典的 Hello World!
+├── Hw2_DeepDreamGenerator/ # 第二次作業 - Deep Dream Generator
+│   └── HW2.pdf            # 作業說明文件
+├── README.md              # 你現在看到的這個檔案
+└── .gitignore            # Git 忽略檔案設定
 ```
 
 ## 🎯 課程目標
@@ -30,9 +32,9 @@
 ## 📝 作業列表
 
 | 作業 | 狀態 | 描述 | 完成日期 |
-|------|------|------|----------|
+|------|------|------|---------|
 | HW1 | ✅ | GitHub 基礎操作 | 2024/09/19 |
-| HW2 | 🔄 | 待更新... | - |
+| HW2 | ✅ | Deep Dream Generator | 2024/09/27 |
 | HW3 | ⏳ | 待更新... | - |
 
 ## 🛠️ 使用的工具
@@ -53,4 +55,4 @@
 
 > 💡 **學習心得:** 每一行程式碼都是通往更好解決方案的一步！
 
-*最後更新: 2025/09/20*
+*最後更新: 2024/09/27*
