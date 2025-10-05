@@ -18,11 +18,17 @@
 │   └── HelloWorld.txt
 ├── Hw2_DeepDreamGenerator/
 │   └── HW2.pdf
+├── Hw3_Excel1/
+│   └── HW3/
+│       ├── HW3.xlsx
 ├── Appendix/
 │   └── HW2/
 │       ├── dream_snn943ksxg4 (1).jpg
 │       ├── dream_snn943ksxg4.jpg
 │       └── maxresdefault.jpg
+│   └── HW3/
+│       ├── HW3.xlsx
+│       └── Assignment Instructions.txt
 ├── README.md              # 你現在看到的這個檔案
 └── .gitignore
 ```
@@ -41,6 +47,9 @@
 - **HW2/**: Deep Dream Generator 相關圖片檔案
   - `dream_snn943ksxg4.jpg` & `dream_snn943ksxg4 (1).jpg`: Deep Dream 生成圖片
   - `maxresdefault.jpg`: 參考圖片
+- **HW3/**: Excel 相關檔案
+  - `HW3.xlsx`: Excel 檔案
+  - `Assignment Instructions.txt`: Excel 檔案的說明文件
 
 ## 📝 作業列表
 
@@ -48,7 +57,8 @@
 |------|------|------|---------|
 | HW1 | ✅ | GitHub 基礎操作 | 2024/09/19 |
 | HW2 | ✅ | Deep Dream Generator | 2024/09/27 |
-| HW3 | ⏳ | 待更新... | - |
+| HW3 | ✅ | Excel 基礎操作 | 2024/09/28 |
+| HW4 | ⏳ | 待更新 | ... |
 
 ## 🛠️ 使用的工具
 
@@ -68,4 +78,4 @@
 
 > 💡 **學習心得:** 每一行程式碼都是通往更好解決方案的一步！
 
-*最後更新: 2024/09/27*
+*最後更新: 2024/10/05*
