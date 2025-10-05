@@ -1,0 +1,19 @@
+HW3作業說明
+
+Download the excel file from Moodle, fill in the answers to the 10 questions (note: the answers must be obtained in the form of formulas, you cannot use your own hand calculations, the homework will check the formulas), and name the file "HW3_Student Number", upload this file to GitHub and then paste the sharing link to the Moodle work area for submission.
+
+Deadline: 2025/10/9 23:59
+
+10 Questions:
+
+Q1: Average score of the five exams
+Q2: Calculation of the overall score (exams 10%*5 + Midterm 50%)
+Q3: Convert all students' overall score into the form of A, B, C, D,F
+A:90~100 B: 80~89 C: 70~79 D: 60~69 F: 0~59
+Q4: Convert all students' overall score into "pass" or "fail" form according to the following rules (fail: 0~59 pass: 60~100), and mark “pass” as green and “fail” as red.
+Q5: Calculate the class average overall score
+Q6: Find the highest score in Exam1
+Q7: Find the score with the second highest score in Exam2
+Q8: How many people have less than 80 points in average score of the five exams
+Q9: Draw a bar graph of the students' overall scores
+Q10: Draw a circle chart based on the "pass" and "fail" grades of the students' overall score and mark the proportions.
