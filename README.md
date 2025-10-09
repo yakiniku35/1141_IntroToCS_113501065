@@ -14,23 +14,31 @@
 
 ```
 1141_IntroToCS_113501065/
-├── HW1_Github/
-│   └── HelloWorld.txt
-├── Hw2_DeepDreamGenerator/
-│   └── HW2.pdf
-├── Hw3_Excel1/
-│   └── HW3/
-│       ├── HW3.xlsx
-├── Appendix/
-│   └── HW2/
-│       ├── dream_snn943ksxg4 (1).jpg
-│       ├── dream_snn943ksxg4.jpg
-│       └── maxresdefault.jpg
-│   └── HW3/
-│       ├── HW3.xlsx
-│       └── Assignment Instructions.txt
-├── README.md              # 你現在看到的這個檔案
-└── .gitignore
+Appendix/
+    ├── HW2/
+        ├── dream_snn943ksxg4 (1).jpg
+        ├── dream_snn943ksxg4.jpg
+        └── maxresdefault.jpg
+    └── HW3/
+        ├── Assignment Instructions.txt
+        └── HW3.xlsx
+HW1_Github/
+    └── HelloWorld.txt
+Hw2_DeepDreamGenerator/
+    └── HW2.pdf
+HW3_Excel1/
+    └── HW3_113501065.xlsx
+Textbook/
+    ├── 0912 TA Slides.pdf
+    ├── Week-1-intro.pdf
+    ├── Week-2-hardware.pdf
+    ├── Week-3-hardware2.pdf
+    ├── Week-4-os2.pdf
+    ├── Week5-Network-1_2.pdf
+    ├── Week6-Network-3.pdf
+    └── Week6-Security.pdf
+.gitignore
+README.md
 ```
 
 ## 🎯 課程目標
@@ -79,3 +87,6 @@
 > 💡 **學習心得:** 每一行程式碼都是通往更好解決方案的一步！
 
 *最後更新: 2024/10/05*
+
+
+
