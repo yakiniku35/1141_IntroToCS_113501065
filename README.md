@@ -19,15 +19,21 @@ Appendix/
         ├── dream_snn943ksxg4 (1).jpg
         ├── dream_snn943ksxg4.jpg
         └── maxresdefault.jpg
-    └── HW3/
+    ├── HW3/
         ├── Assignment Instructions.txt
         └── HW3.xlsx
+    ├── HW4/
+        └── 範例程式碼.pdf
+    └── .DS_Store
 HW1_Github/
     └── HelloWorld.txt
 Hw2_DeepDreamGenerator/
     └── HW2.pdf
 HW3_Excel1/
     └── HW3_113501065.xlsx
+HW4_Excel2/
+    ├── 113501065_VBA1.xlsm
+    └── 113501065_VBA2.xlsm
 Textbook/
     ├── 0912 TA Slides.pdf
     ├── Week-1-intro.pdf
@@ -37,6 +43,7 @@ Textbook/
     ├── Week5-Network-1_2.pdf
     ├── Week6-Network-3.pdf
     └── Week6-Security.pdf
+.DS_Store
 .gitignore
 README.md
 ```
