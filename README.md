@@ -73,7 +73,8 @@ README.md
 | HW1 | ✅ | GitHub 基礎操作 | 2024/09/19 |
 | HW2 | ✅ | Deep Dream Generator | 2024/09/27 |
 | HW3 | ✅ | Excel 基礎操作 | 2024/10/05 |
-| HW4 | ⏳ | 待更新 | ... |
+| HW4 | ✅ | Excle VBA 操作 | 2025/10/19 |
+| HW5 | ⏳ | 待更新 | ... |
 
 ## 🛠️ 使用的工具
 
