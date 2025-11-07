@@ -2,63 +2,103 @@
 <html lang="en">
 <head>
     <title>
-        Simple Table
+        Lab1_113501065
     </title>
 </head>
 <body>
     <form>
         <h2>
-            Simple Table Before
+            About me -- 113501065
         </h2>
         <table border="1">
             <tr>
-                <th colspan="6">
+                <th colspan="5">
                     About -- 113501065
                 </th>
             </tr>
             <tr>
                 <td colspan="1" rowspan="3">
-                    <img src="my-notion-face-transparent.jpg" alt="personal photo" width="200" height="200">
+                    <img src="my-notion-face-transparent.jpg" alt="personal photo" width="230" height="200">
+                    <p style="text-align: center;">
+                        personal photo
+                    </p>
                 </td>
-                <td colspan="4" rowspan="">
-                    <!-- Add your full name and gender here --> name and gender
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <!-- Add your nationality here --> nationality
-                </td>
-                <td colspan="2">
-                    <!-- Add your birthday here --> birthday
+                <td colspan="4">
+                    <label for="username">
+                        Name:
+                    </label>
+                    <input type="text" id="username" name="username"><br>
+                    <label for="gender">
+                        Gender:
+                    </label>
+                    <input type="radio" name="gender" value="Male" checked>Male
+                    <input type="radio" name="gender" value="Female">Female
+                    <input type="radio" name="gender" value="Other">Other
                 </td>
             </tr>
             <tr>
                 <td colspan="3">
-                    <!-- Add your email here --> email,and should be valid
+                    <!-- Add your nationality here --> County:
+                     <select name="county">
+                        <option name="county" value="Taipei" selected>Taipei</option>
+                        <option name="county" value="Tainan">Tainan</option>
+                        <option name="county" value="Taichung">Taichung</option>
+                        <option name="county" value="Taoyuan">Taoyuan</option>
+                </td>
+                <td colspan="2">
+                    <!-- Add your birthday here --> 
+                     <label for="birthday">
+                        Birthday:
+                    </label>
+                    <input type="date" id="birthday" name="birthday" min="1900-01-01" max="2030-12-31">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <!-- Add your email here --> Email:
+                     <input type="email" name="email" required>
+
                 </td>
             </tr>
             <tr>
                 <td>
                     Hobby
                 </td>
-                <td colspan="3">
-                    <!-- Add your hobby here --> your hobby
+                <td colspan="4">
+                    <!-- Add your hobby here --> 
+                     <input type="checkbox" name="hobby" value="Swimming"> Swimming
+                     <input type="checkbox" name="hobby" value="Volleyball"> Volleyball
+                     <input type="checkbox" name="hobby" value="Movie"> Movie
+                     <input type="checkbox" name="hobby" value="Game"> Game
+                     <input type="checkbox" name="hobby" value="sleep"> sleep
                 </td>
             </tr>
             <tr>
                 <td>
-                    skill
+                    Skill
                 </td>
-                <td colspan="3">
-                    <!-- Add your skill here --> your skill
+                <td colspan="4">
+                    <!-- Add your skill here --> 
+                     <input type="checkbox" name="skill" value="Java"> Java
+                     <input type="checkbox" name="skill" value="HTML"> HTML
+                     <input type="checkbox" name="skill" value="Python"> Python
+                     <input type="checkbox" name="skill" value="Microsoft Office"> Microsoft Office
+                     <input type="checkbox" name="skill" value="Premiere"> Premiere
                 </td>
             </tr>
             <tr>
                 <td>
                     say something
                 </td>
-                <td colspan="3">
-                    <!-- Add your say something here --> your say something then can fill in
+                <td colspan="4">
+                    <!-- Add your say something here -->
+                     <textarea rows="4" cols="50" placeholder="Say something here."></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <input type="submit" value="提交">
+                    <input type="reset" value="重設">
                 </td>
             </tr>
         </table>
