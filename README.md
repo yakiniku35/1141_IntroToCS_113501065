@@ -24,6 +24,10 @@ Appendix/
         └── HW3.xlsx
     ├── HW4/
         └── 範例程式碼.pdf
+    ├── HW5/
+        └── 2025Week-8-HTML-HW.pdf
+    ├── Lab1/
+        └── 2025Week-8-HTML-Lab.pdf
     └── .DS_Store
 HW1_Github/
     └── HelloWorld.txt
@@ -34,8 +38,19 @@ HW3_Excel1/
 HW4_Excel2/
     ├── 113501065_VBA1.xlsm
     └── 113501065_VBA2.xlsm
+HW5_Portfolio/
+    ├── .DS_Store
+    ├── @frieren_pr.JPEG
+    ├── HW5_113501065.html
+    ├── MYANIVIA.GIF
+    ├── nccu_logo.png
+    └── YouTube_full-color_icon_(2017).png
+Lab1_Personal_Info/
+    ├── Lab1_113501065.html
+    └── my-notion-face-transparent.jpg
 Textbook/
     ├── 0912 TA Slides.pdf
+    ├── midterm review.pdf
     ├── Week-1-intro.pdf
     ├── Week-2-hardware.pdf
     ├── Week-3-hardware2.pdf
@@ -74,7 +89,7 @@ README.md
 | HW2 | ✅ | Deep Dream Generator | 2024/09/27 |
 | HW3 | ✅ | Excel 基礎操作 | 2024/10/05 |
 | HW4 | ✅ | Excle VBA 操作 | 2025/10/19 |
-| HW5 | ⏳ | HTML 基礎操作 | 2025/11/8 |
+| HW5 | ✅ | HTML 基礎操作 | 2025/11/8 |
 | HW6 | ⏳ | 待更新 | ... |
 
 ## 🛠️ 使用的工具
