@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" lang="zh-Hant">
 <head>
+    <meta charset="UTF-8">
     <title>
         Lab1_113501065
     </title>
@@ -9,16 +10,16 @@
             font-family: "Times New Roman", serif;
         }
         table {
-        margin-left: 20px; /* table 整體離左邊有距離 */
+        margin-left: 20px;
         }
 
         td {
-            padding-left: 10px; /* 每格內容內縮 */
-            text-align: left;    /* 文字靠左 */
+            padding-left: 10px; 
+            text-align: left;   
         }
 
         input, select, textarea {
-            margin-left: 0;      /* 確保 input 不額外偏右 */
+            margin-left: 0;     
         }
     </style>
 </head>
@@ -29,18 +30,18 @@
         </h2>
         <table border="1" style="margin-left:10px;">
             <tr>
-                <th colspan="5">
+                <th colspan="5" style="height: 30px;">
                     About -- 113501065
                 </th>
             </tr>
             <tr>
                 <td colspan="1" rowspan="3">
-                    <img src="my-notion-face-transparent.jpg" alt="personal photo" width="230" height="200">
+                    <img src="my-notion-face-transparent.jpg" alt="personal photo" width="120" height="120">
                     <p style="text-align: center;">
                         personal photo
                     </p>
                 </td>
-                <td colspan="4">
+                <td colspan="4" height="70">
                     <label for="username">
                         Name:
                     </label>
@@ -54,8 +55,8 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="3">
-                    <!-- Add your nationality here --> County:
+                <td colspan="3" height="40">
+                    <!-- nationality here --> County:
                      <select name="county">
                         <option value="Taipei" selected>Taipei</option>
                         <option value="Tainan">Tainan</option>
@@ -64,7 +65,7 @@
                     </select>
                 </td>
                 <td colspan="2">
-                    <!-- Add your birthday here --> 
+                    <!-- birthday here --> 
                      <label for="birthday">
                         Birthday:
                     </label>
@@ -73,8 +74,8 @@
             </tr>
             <tr>
                 <td colspan="4">
-                    <!-- Add your email here --> Email:
-                     <input type="email" name="email" required>
+                    <!-- email here --> Email:
+                    <input type="email" name="email" required>
 
                 </td>
             </tr>
@@ -83,7 +84,7 @@
                     Hobby
                 </td>
                 <td colspan="4">
-                    <!-- Add your hobby here --> 
+                    <!-- hobby here --> 
                      <input type="checkbox" name="hobby" value="Swimming"> Swimming
                      <input type="checkbox" name="hobby" value="Volleyball"> Volleyball
                      <input type="checkbox" name="hobby" value="Movie"> Movie
@@ -96,7 +97,7 @@
                     Skill
                 </td>
                 <td colspan="4">
-                    <!-- Add your skill here --> 
+                    <!-- skill here --> 
                      <input type="checkbox" name="skill" value="Java"> Java
                      <input type="checkbox" name="skill" value="HTML"> HTML
                      <input type="checkbox" name="skill" value="Python"> Python
@@ -109,7 +110,7 @@
                     Say Something
                 </td>
                 <td colspan="4">
-                    <!-- Add your say something here -->
+                    <!-- say something here -->
                      <textarea rows="1" cols="20" placeholder="Say something here."></textarea>
                 </td>
             </tr>
