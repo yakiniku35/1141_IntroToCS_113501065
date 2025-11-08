@@ -7,31 +7,39 @@
         body {
             background-color: rgb(255, 255, 255);
             display: flex;
+            transform: scale(0.9);
+            transform-origin: top;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             height: 100vh;
             margin: 0;
+            font-size: 14px;
+            overflow-y: auto;
         }
         table {
             border: 1px solid black;
+            border-collapse: collapse;
+            width: 600px;
         }
         td {
             border: 1px solid black;
-            padding: 10px;
+            padding: 6px;
         }
+        h2 { font-size: 1.25rem; }
+        h3 { font-size: 1.1rem; }
     </style>
     <title>113501065_Portfolio</title>
 </head>
 <body>
     <table>
         <tr style="background-color: rgb(234, 179, 238);">
-            <td colspan="12" width="800">
+            <td colspan="12" width="600">
                 <h2 style="text-align: center; color:rgb(67, 11, 122)">Welcome to Chiu's Portfolio</h2>
             </td>
         </tr>
         <tr>
             <td rowspan="4" colspan="4">
-                <img src="" alt="profile picture" height="200" width="200">
+                <img src="" alt="profile picture" height="150" width="150">
             </td>
             <td colspan="4">
                 <p>姓名</p>
@@ -68,7 +76,6 @@
             <td colspan="12" style="text-align: center;">
                 <h3 style="color: rgb(67, 11, 122);">Learning History</h3>
             </td>
-            
         </tr>
         <tr>
             <td colspan="4" height="40">
@@ -112,9 +119,25 @@
         <tr>
             <td colspan="12" style="text-align: left;">
                 <p>我的最愛音樂</p>
-                <img src="YouTube_logo.png" alt="YouTube logo" width="60" height="15">
+                <a href="https://www.youtube.com/" target="_blank">
+                    <img src="YouTube_full-color_icon_(2017).png" alt="YouTube logo" width="24" height="16">
+                </a>
+                <p>Music</p>
+                <a href="https://www.youtube.com/" target="_blank">
+                    <img src="YouTube_full-color_icon_(2017).png" alt="YouTube logo" width="24" height="16">
+                </a>
+                <p>Music</p>
+                <a href="https://www.youtube.com/" target="_blank">
+                    <img src="YouTube_full-color_icon_(2017).png" alt="YouTube logo" width="24" height="16">
+                </a>
+                <p>Music</p>
             </td>
+        </tr>
+        <tr>
+            <td colspan="12" style="text-align: center;">
+                <p>Thank you for visiting my portfolio!</p>
+            </td>
+        </tr>
     </table>
-    
 </body>
 </html>
