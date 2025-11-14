@@ -1,23 +1,69 @@
-li em {font-weight: bold;}
-.intro {font-size: 50px; color: rgb(0, 0, 255);}
-/* 上面這一個叫class */
-
-#name {color: rgb(0, 0, 0); 
-background-color: yellow;
-padding: 10px;
-font-size: 20px;}
-/* 上面這一個叫id */
-
-body {background-color: rgb(226, 210, 248);}
-a.nodec {text-decoration: none;}
-a:hover {color: rgb(255, 0, 0);}
-h1, em {font-family: Arial, sans-serif;}
-ul {margin-left: 20px}
-ul ul {font-size: .8em;}
-h1 {color: rgb(63, 93, 246);}
-p {color: rgb(2, 77, 81);}
-button:active {
-  transform: scale(0.95);
+/* Class selector */
+.intro {
+    font-size: 50px;
+    color: rgb(0, 0, 255);
 }
 
-span {font-family: Arial, sans-serif;}
+/* ID selector */
+#name {
+    color: rgb(0, 0, 0);
+    background-color: yellow;
+    padding: 10px;
+    font-size: 20px;
+}
+
+nav {
+    font-weight: bold;
+    color:antiquewhite;
+    border: 2px solid black;
+}
+
+/* Element selectors */
+body {
+    background-color: rgb(226, 210, 248);
+}
+
+h1 {
+    color: rgb(63, 93, 246);
+    font-family: Arial, sans-serif;
+}
+
+p {
+    color: rgb(2, 77, 81);
+}
+
+span {
+    font-family: Arial, sans-serif;
+}
+
+/* List styles */
+ul {
+    margin-left: 20px;
+}
+
+ul ul {
+    font-size: 0.8em;
+}
+
+li em {
+    font-weight: bold;
+}
+
+/* Link styles */
+a.nodec {
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(255, 0, 0);
+}
+
+/* Common styles */
+em {
+    font-family: Arial, sans-serif;
+}
+
+/* Button states */
+button:active {
+    transform: scale(0.95);
+}
