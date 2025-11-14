@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color:rgb(240, 240, 240);
+  background-color: rgb(240, 240, 240);
+
+}
+
+h1 {
+  background-color: rgb(84, 154, 211);
+  color: white;
+  text-align: center;
+}
+  
+p {
+  background-color: rgb(84, 154, 211);
+  color: white;
+  text-align: center;
+}
+
+.navbar {
+  display: flex;         
+  gap: 20px;              
+  list-style: none;      
+  padding: 0;
+  margin: 0;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-align: center;
+  align-items: center;
+}
+
+li {
+  display: inline;       
+  text-align: center;
+} 
