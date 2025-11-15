@@ -139,3 +139,10 @@ li:hover {
   font-size: 0.8em;
   margin-left: 5px;
 }
+
+/* 滑鼠懸停時變紅色 */
+a[href^="mailto:"]:hover {
+  color: red;
+  cursor: pointer;
+  transition: color 0.3s ease; /* 添加平滑過渡效果 */
+}
