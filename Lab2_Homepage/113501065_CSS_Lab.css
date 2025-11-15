@@ -16,9 +16,10 @@ body {
   }
 }
 
+
 @media all and (min-width: 800px) {
   body {
-    background-color: rgb(203, 203, 252);
+    background-color: rgb(182, 238, 227);
   }
 }
 
