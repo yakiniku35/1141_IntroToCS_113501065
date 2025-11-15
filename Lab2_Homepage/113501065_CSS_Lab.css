@@ -10,6 +10,18 @@ body {
   font-family: 'Arial', sans-serif;
 }
 
+@media screen and (min-width: 400px) {
+  body {
+    background-color: rgb(251, 209, 227);
+  }
+}
+
+@media screen and (min-width: 800px) {
+  body {
+    background-color: rgb(203, 203, 252);
+  }
+}
+
 h1 {
   color: white;
   background-color: rgb(84, 154, 211);
@@ -18,10 +30,17 @@ h1 {
   padding: 10px;
 }
   
-p {
+h1+p {
   background-color: rgb(84, 154, 211);
   color: white;
   text-align: center;
+  padding: 10px;
+}
+
+.center-left {
+  width: 60%;           /* 控制段落寬度 */
+  margin: 0 auto;       /* 段落區塊置中 */
+  text-align: left;     /* 文字靠左 */
   padding: 10px;
 }
 
