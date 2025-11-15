@@ -10,15 +10,30 @@ body {
   font-family: 'Arial', sans-serif;
 }
 
-@media screen and (min-width: 400px) {
+@media all and (min-width: 400px) {
   body {
     background-color: rgb(251, 209, 227);
   }
 }
 
-@media screen and (min-width: 800px) {
+@media all and (min-width: 800px) {
   body {
     background-color: rgb(203, 203, 252);
+  }
+}
+
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+  
+  .navbar {
+    display: none; /* 隱藏導航欄在列印時 */
+  }
+  
+  .dropdown-content {
+    display: none; /* 隱藏下拉菜單在列印時 */
   }
 }
 
@@ -122,5 +137,4 @@ li:hover {
   content: ' ▼';
   font-size: 0.8em;
   margin-left: 5px;
-
 }
