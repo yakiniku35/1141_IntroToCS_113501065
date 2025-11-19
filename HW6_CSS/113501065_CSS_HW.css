@@ -1,0 +1,29 @@
+.main-container {
+    display: flex;
+    width: 1000px;
+    height: 800px;
+    background-color: rgb(245, 215, 215);
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    padding: 10px;
+    margin: 40px auto;
+    gap: 10px; /* ⭐ 左右 panel 間距 */
+}
+
+.left-container {
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 4px;
+    flex: 0 0 32%;
+    min-height: 750px;
+}
+
+.right-container {
+    background-color: rgb(203, 140, 140);
+    padding: 10px;
+    border-radius: 4px;
+    flex: 0 0 68%;
+    min-height: 750px;
+}
