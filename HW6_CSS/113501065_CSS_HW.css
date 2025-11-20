@@ -194,11 +194,18 @@ ul li a:hover {
     gap: 0px;
     margin: 0 auto;
 }
+
+.wrapper img {
+    width: 35%;
+    height: auto;
+    border-radius: 8px;
+}
+
 /* Requirement #8: Favorite Music Section */
 .music-container {
     display: flex;
-    justify-content: space-around;
-    gap: 15px;
+    justify-content: center;
+    gap: 0px;
     text-align: center;
 }
 
@@ -212,8 +219,7 @@ ul li a:hover {
 }
 
 .music-item img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
+    width: 35%;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -231,7 +237,7 @@ ul li a:hover {
 
 /* NEW: Hover effect for music item titles */
 .music-item:hover span {
-    color: #007BFF;
+    color: #cd2b2b;
 }
 
 .music-note {
