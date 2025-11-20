@@ -141,6 +141,14 @@ body {
     flex: 0 0 auto;
 }
 
+hover {
+    background-color: #dcdcdc; /* hover 變深，融在背景 */
+    /* rgba(211, 50, 50, 0.7) */
+    transform: translateY(-4px);    /* 浮起 */
+    /*box-shadow: 0 6px 12px rgba(0,0,0,0.2);  柔和陰影 */
+    color: white;                   /* 字顏色變亮 */
+}
+
 .timeline-item {
     display: flex;
     margin-bottom: 5px;
@@ -166,6 +174,9 @@ body {
     font-size: 14px;
 }
 
+a {
+    text-decoration: none;
+}
 
 ul li a {
     display: block;                 /* 讓整個 a 可互動 */
