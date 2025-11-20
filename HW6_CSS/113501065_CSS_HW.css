@@ -9,7 +9,7 @@ body {
     height: 800px;
     background-color: rgb(245, 215, 215);
     border-radius: 10px;
-    justify-content: center; /* panel 整排置中 */
+    justify-content: center;
     align-items: flex-start;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
     padding: 0px;
@@ -18,21 +18,21 @@ body {
 }
 
 .left-container, .right-container {
-    display: flex;            /* 內部 flex，方便置中內容 */
-    flex-direction: column;   /* 上下排列 */
-    justify-content: flex-start; /* 內部內容靠上 */
-    align-items: center;       /* 水平置中，因為是這邊都是置中，所以導致我剛剛沒法靠左 */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     border-radius: 4px;
-    min-height: 100%;          /* 適應父容器高度 */
+    min-height: 100%;
     box-sizing: border-box;
     overflow: hidden;
     padding: 0px;
 }
 
 .left-container {
-    flex: 0 0 30%;             /* 左 panel 寬度 */
+    flex: 0 0 30%;
     background-color: rgb(203, 140, 140);
-    align-items: stretch;  /* 這樣可以讓內容撐滿，我才可以靠左 */
+    align-items: stretch;
     margin: 0px;
     padding: auto;
 }
@@ -44,16 +44,14 @@ body {
 }
 
 .right-container {
-    flex: 0 0 70%;             /* 右 panel 寬度 */
+    flex: 0 0 70%;
     background-color: rgb(255, 255, 255);
     align-items: stretch;
 }
 
-
 .section {
-    margin-bottom: 5px;  /* 每個區塊之間留點空間 */
+    margin-bottom: 5px;
 }
-
 
 .section-title {
     text-align: left;
@@ -99,6 +97,39 @@ body {
 }
 
 .right-container-margin {
+    display: inline-block;
     margin-left: 25px;
-    margin-top: 0px;
+    margin-right: 20px;
+    margin-top: 3px;
+    vertical-align: middle;
+}
+
+.section-flex {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: 25px; /* 添加這行，與標題和分隔線對齊 */
+}
+
+.section-left {
+    flex: 0 0 auto;
+}
+
+.section-right {
+    flex: 0 0 auto;
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.year {
+    font-weight: bold;
+    color: #555;
+    width: 120px;
+}
+
+.description {
+    color: #666;
 }
