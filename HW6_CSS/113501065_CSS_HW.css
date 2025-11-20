@@ -54,12 +54,14 @@ body {
     margin-right: 45px;
     display: flex;
     gap: 10px;
+    
 }
 
 .hw-column, .lab-column {
+    padding-left: 0;
     background-color: #dcdcdc;
-    padding: 50px;
-    border-radius: 10px;
+    padding: 5px;
+    border-radius: 7px;
     flex: 1; /* Each column takes equal space */
 }
 
@@ -165,7 +167,77 @@ body {
 }
 
 
-a {
+ul li a {
+    display: block;                 /* 讓整個 a 可互動 */
+    padding: 4px 6px;              /* 空間感 */
+    border-radius: 10px;            /* 圓角，看起來柔和 */
     color: rgb(203, 100, 100);
     text-decoration: none;
+    transition: all 0.3s ease;      /* 平滑過渡 */
+    margin-bottom: px;             /* 列表間距 */
+}
+
+ul li a:hover {
+    background-color: #dcdcdc; /* hover 變深，融在背景 */
+    /* rgba(211, 50, 50, 0.7) */
+    transform: translateY(-4px);    /* 浮起 */
+    /*box-shadow: 0 6px 12px rgba(0,0,0,0.2);  柔和陰影 */
+    color: white;                   /* 字顏色變亮 */
+}
+
+.wrapper {
+    text-align: center;
+    margin-left: -30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 25% 25%;
+    gap: 0px;
+    margin: 0 auto;
+}
+/* Requirement #8: Favorite Music Section */
+.music-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    text-align: center;
+}
+
+.music-item {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 23%;
+}
+
+.music-item img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: transform 0.2s;
+}
+
+.music-item:hover img {
+    transform: scale(1.05);
+}
+
+.music-item span {
+    font-size: 14px;
+    transition: color 0.2s; /* NEW: Hover Transition */
+}
+
+/* NEW: Hover effect for music item titles */
+.music-item:hover span {
+    color: #007BFF;
+}
+
+.music-note {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #777;
+    font-style: italic;
+    text-align: center;
 }
