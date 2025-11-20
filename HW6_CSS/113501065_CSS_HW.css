@@ -222,6 +222,7 @@ ul li a:hover {
     width: 35%;
     object-fit: cover;
     border-radius: 8px;
+    margin-top: 10px;
     margin-bottom: 10px;
     transition: transform 0.2s;
 }
@@ -232,6 +233,7 @@ ul li a:hover {
 
 .music-item span {
     font-size: 14px;
+    margin-top: 10px;
     transition: color 0.2s; /* NEW: Hover Transition */
 }
 
