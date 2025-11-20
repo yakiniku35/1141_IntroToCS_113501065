@@ -49,6 +49,26 @@ body {
     align-items: stretch;
 }
 
+.columns-container {
+    margin-left: 25px;
+    margin-right: 45px;
+    display: flex;
+    gap: 10px;
+}
+
+.hw-column, .lab-column {
+    background-color: #d1aaaa;
+    padding: 50px;
+    border-radius: 10px;
+    flex: 1; /* Each column takes equal space */
+}
+
+.hw-column h3, .lab-column h3 {
+    margin: 0 0 15px 0;
+    font-size: 18px;
+    color: #fffefe;
+}
+
 .section {
     margin-bottom: 5px;
 }
@@ -57,8 +77,8 @@ body {
     text-align: left;
     margin-left: 25px;
     font-size:20px;
-    margin-bottom: 5px;
-    margin-top: 30px;
+    margin-bottom: 3px;
+    margin-top: 15px;
     color: rgb(0, 0, 0);
 }
 
@@ -91,7 +111,7 @@ body {
 .right-separator {
     width: 630px;
     text-align: center;
-    border-bottom: 2px solid rgb(0, 0, 0);
+    border-bottom: 2px solid rgb(124, 103, 103);
     margin-left: 25px;
     margin-bottom: 10px;
 }
@@ -121,7 +141,8 @@ body {
 
 .timeline-item {
     display: flex;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
+    margin-left: 25px;
 }
 
 .year {
@@ -132,4 +153,13 @@ body {
 
 .description {
     color: #666;
+}
+
+.tag {
+    display: inline-block;
+    background-color: rgb(251, 197, 197);
+    color: rgb(162, 79, 79);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 14px;
 }
