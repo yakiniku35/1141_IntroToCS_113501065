@@ -226,7 +226,7 @@ ul li a:hover {
 }
 
 .music-item img {
-    width: 35%;
+    width: 37%;
     object-fit: cover;
     border-radius: 8px;
     margin-top: 10px;
@@ -250,7 +250,7 @@ ul li a:hover {
 }
 
 .music-note {
-    margin: 20px 25px;
+    margin: 10px 25px;
     font-size: 14px;
     color: #777;
     font-style: italic;
