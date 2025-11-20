@@ -26,8 +26,12 @@ Appendix/
         └── 範例程式碼.pdf
     ├── HW5/
         └── 2025Week-8-HTML-HW.pdf
+    ├── HW6/
+        └── 2025Week-9-CSS-HW6.pdf
     ├── Lab1/
         └── 2025Week-8-HTML-Lab.pdf
+    ├── Lab2/
+        └── 2025Week-9-CSS-Lab.pdf
     └── .DS_Store
 HW1_Github/
     └── HelloWorld.txt
@@ -41,13 +45,29 @@ HW4_Excel2/
 HW5_Portfolio/
     ├── .DS_Store
     ├── @frieren_pr.JPEG
+    ├── bocci_dino.JPEG
     ├── HW5_113501065.html
-    ├── MYANIVIA.GIF
     ├── nccu_logo.png
+    ├── rigby.png
     └── YouTube_full-color_icon_(2017).png
+HW6_CSS/
+    ├── photo/
+        ├── faker_2025_final_anivia.jpg
+        ├── IMG_0016.JPG
+        ├── nccu_logo.png
+        └── YouTube_full-color_icon_(2017).png
+    ├── 113501065_CSS_HW.css
+    └── 113501065_CSS_HW.html
+Inclass_test/
+    ├── Externalcss.css
+    ├── html.html
+    └── id_class.html
 Lab1_Personal_Info/
     ├── Lab1_113501065.html
     └── my-notion-face-transparent.jpg
+Lab2_Homepage/
+    ├── 113501065_CSS_Lab.css
+    └── 113501065_CSS_Lab.html
 Textbook/
     ├── 0912 TA Slides.pdf
     ├── midterm review.pdf
@@ -90,7 +110,8 @@ README.md
 | HW3 | ✅ | Excel 基礎操作 | 2024/10/05 |
 | HW4 | ✅ | Excle VBA 操作 | 2025/10/19 |
 | HW5 | ✅ | HTML 基礎操作 | 2025/11/8 |
-| HW6 | ⏳ | 待更新 | ... |
+| HW6 | ✅ | CSS 基礎操作 | 2025/11/20 |
+| HW7 | ⏳ | 待更新 | ... |
 
 ## 🛠️ 使用的工具
 
@@ -110,7 +131,7 @@ README.md
 
 > 💡 **學習心得:** 每一行程式碼都是通往更好解決方案的一步！
 
-*最後更新: 2024/10/05*
+*最後更新: 2025/11/20*
 
 
 
