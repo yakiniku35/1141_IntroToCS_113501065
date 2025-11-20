@@ -2,6 +2,10 @@ body {
     font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
                  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", system-ui;
     text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 .main-container {
     display: flex;
@@ -141,14 +145,6 @@ body {
     flex: 0 0 auto;
 }
 
-hover {
-    background-color: #dcdcdc; /* hover 變深，融在背景 */
-    /* rgba(211, 50, 50, 0.7) */
-    transform: translateY(-4px);    /* 浮起 */
-    /*box-shadow: 0 6px 12px rgba(0,0,0,0.2);  柔和陰影 */
-    color: white;                   /* 字顏色變亮 */
-}
-
 .timeline-item {
     display: flex;
     margin-bottom: 5px;
@@ -185,7 +181,7 @@ ul li a {
     color: rgb(203, 100, 100);
     text-decoration: none;
     transition: all 0.3s ease;      /* 平滑過渡 */
-    margin-bottom: px;             /* 列表間距 */
+    margin-bottom: 5px;             /* 列表間距 */
 }
 
 ul li a:hover {
