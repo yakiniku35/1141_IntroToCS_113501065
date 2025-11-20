@@ -241,7 +241,7 @@ ul li a:hover {
 }
 
 .music-note {
-    margin-top: 20px;
+    margin: 20px 25px;
     font-size: 14px;
     color: #777;
     font-style: italic;
