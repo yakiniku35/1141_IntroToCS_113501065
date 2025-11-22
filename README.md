@@ -2,7 +2,7 @@
 
 > **學號:** 113501065  
 > **課程:** Introduction to Computer Science  
-> **學期:** 1141 (2025 Spring)
+> **學期:** 1141 (2025 Summer)
 
 ---
 
@@ -100,6 +100,9 @@ README.md
 - **HW3/**: Excel 相關檔案
   - `HW3.xlsx`: Excel 檔案
   - `Assignment Instructions.txt`: Excel 檔案的說明文件
+- **HWW4/**:
+- **HWW5/**:
+- **HWW6/**:
 
 ## 📝 作業列表
 
@@ -118,6 +121,7 @@ README.md
 - **版本控制:** Git & GitHub
 - **編輯器:** Visual Studio Code
 - **作業系統:** macOS
+- **檢查:** copilot
 - **Terminal:** Zsh
 
 ## 📞 聯絡資訊
@@ -131,7 +135,7 @@ README.md
 
 > 💡 **學習心得:** 每一行程式碼都是通往更好解決方案的一步！
 
-*最後更新: 2025/11/20*
+*最後更新: 2025/11/22*
 
 
 
