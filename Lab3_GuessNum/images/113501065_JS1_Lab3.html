@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS1 Lab3 Guess Number</title>
+
+    <style>
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="../css/JS1_Lab3.css">
+
+</head>
+<body>
+    <h1> 113501065_Number Guessing Game </h1>
+
+    <div>
+        
+    </div>
+
+    <script>
+        var answer = Math.floor(Math.random() * 100) + 1;
+        var chances = 7;
+        var guess_num;
+        var min = 1;
+        var max = 100;
+        guess_num = window.prompt('Guess a number between ' + min + ' and ' + max + ', You have ' + chances + ' chances left:');
+
+        while (guess_num != answer) {
+
+            // 根據猜測結果更新可猜範圍
+            if (guess_num < answer) {
+                alert('Your guess is too low. Try again.');
+                min = guess_num;   // 更新最小可能值
+            } 
+            else if (guess_num > answer) {
+                alert('Your guess is too high. Try again.');
+                max = guess_num;   // 更新最大可能值
+            }
+
+            chances--;
+
+            if (chances == 0) {
+                alert('Sorry, you ran out of chances. The number was ' + answer + '.');
+                break;
+            }
+
+            guess_num = window.prompt(
+                'Guess a number between ' + min + ' and ' + max +
+                '. You have ' + chances + ' chances left:'
+            );
+        }
+
+
+        if (guess_num == answer) {
+            alert('You guessed the number in ' + chances + ' chances.<br>');
+        }
+        else {
+            alert('Sorry, the number was ' + answer + '.<br>');
+        }
+
+    </script>
+</body>
+</html>
