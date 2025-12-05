@@ -30,13 +30,13 @@
             // 2. Get Input
             var input = window.prompt(message);
 
-            // 🔍 Handle Cancel Button (Exit Game)
+            //  Handle Cancel Button (Exit Game)
             if (input === null) {
                 alert("Game canceled by user.");
                 break; 
             }
 
-            // 🔍 Empty Check
+            //  Empty Check
             if (input.trim() === "") {
                 alert("Input cannot be empty!");
                 continue; // Skips the rest and restarts loop
@@ -44,19 +44,19 @@
 
             var guess_num = Number(input);
 
-            // 🔍 NaN Check
+            //  NaN Check
             if (isNaN(guess_num)) {
                 alert("Please enter a valid number.");
                 continue;
             }
 
-            // 🔍 Integer Check (Optional but recommended)
+            //  Integer Check (Optional but recommended)
             if (!Number.isInteger(guess_num)) {
                 alert("Please enter a whole number (no decimals).");
                 continue;
             }
 
-            // 🔍 Range Check
+            //  Range Check
             if (guess_num < min || guess_num > max) {
                 alert("Your guess is out of range! Stay between " + min + " and " + max + ".");
                 continue;
