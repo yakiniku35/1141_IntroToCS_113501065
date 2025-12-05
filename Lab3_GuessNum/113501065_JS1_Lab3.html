@@ -5,15 +5,26 @@
     <title>JS1 Lab3 Guess Number</title>
 
     <style>
-    </style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
 
-    <link rel="stylesheet" type="text/css" href="../css/JS1_Lab3.css">
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+    </style>
 
 </head>
 <body>
     <h1> 113501065_Number Guessing Game </h1>
 
-    <div>
+    <div id="result">
+        <img src="/Lab3_GuessNum/images/correct.jpg" alt="correct Guess" width="300">
+        <img src="/Lab3_GuessNum/images/wrong.jpg" alt="wrong Guess" width="300">
         
     </div>
 
@@ -53,9 +64,11 @@
 
         if (guess_num == answer) {
             alert('You guessed the number in ' + chances + ' chances.<br>');
+            document.getElementById('result').innerHTML = '<img src="/Lab3_GuessNum/images/correct.jpg" alt="correct Guess" width="300">';
         }
         else {
             alert('Sorry, the number was ' + answer + '.<br>');
+            document.getElementById('result').innerHTML = '<img src="/Lab3_GuessNum/images/wrong.jpg" alt="wrong Guess" width="300">';
         }
 
     </script>
