@@ -3,74 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <title>JS1 Lab3 Guess Number</title>
-
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f0f0;
-            padding: 20px;
-        }
-
-        h1 {
-            color: #333;
-            margin-bottom: 30px;
-        }
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f0f0f0; padding: 20px; }
+        h1 { color: #333; margin-bottom: 30px; }
     </style>
-
 </head>
-<body>
-    <h1> 113501065_Number Guessing Game </h1>
 
-    <div id="result">
-        <img src="/Lab3_GuessNum/images/correct.jpg" alt="correct Guess" width="300">
-        <img src="/Lab3_GuessNum/images/wrong.jpg" alt="wrong Guess" width="300">
-        
-    </div>
+<body>
+    <h1>113501065_Number Guessing Game</h1>
+    <div id="result"></div>
 
     <script>
         var answer = Math.floor(Math.random() * 100) + 1;
         var chances = 7;
-        var guess_num;
         var min = 1;
         var max = 100;
-        guess_num = window.prompt('Guess a number between ' + min + ' and ' + max + ', You have ' + chances + ' chances left:');
+        
+        // Use a loop that breaks when necessary. 
+        // We don't need an initial prompt outside the loop.
+        while (chances > 0) {
+            
+            // 1. Construct the message
+            var message = 'Guess a number between ' + min + ' and ' + max + 
+                          '. You have ' + chances + ' chances left:';
+            
+            // 2. Get Input
+            var input = window.prompt(message);
 
-        while (guess_num != answer) {
-
-            // 根據猜測結果更新可猜範圍
-            if (guess_num < answer) {
-                alert('Your guess is too low. Try again.');
-                min = guess_num;   // 更新最小可能值
-            } 
-            else if (guess_num > answer) {
-                alert('Your guess is too high. Try again.');
-                max = guess_num;   // 更新最大可能值
+            // 🔍 Handle Cancel Button (Exit Game)
+            if (input === null) {
+                alert("Game canceled by user.");
+                break; 
             }
 
-            chances--;
+            // 🔍 Empty Check
+            if (input.trim() === "") {
+                alert("Input cannot be empty!");
+                continue; // Skips the rest and restarts loop
+            }
 
-            if (chances == 0) {
-                alert('Sorry, you ran out of chances. The number was ' + answer + '.');
+            var guess_num = Number(input);
+
+            // 🔍 NaN Check
+            if (isNaN(guess_num)) {
+                alert("Please enter a valid number.");
+                continue;
+            }
+
+            // 🔍 Integer Check (Optional but recommended)
+            if (!Number.isInteger(guess_num)) {
+                alert("Please enter a whole number (no decimals).");
+                continue;
+            }
+
+            // 🔍 Range Check
+            if (guess_num < min || guess_num > max) {
+                alert("Your guess is out of range! Stay between " + min + " and " + max + ".");
+                continue;
+            }
+
+            // ✔ Game Logic
+            if (guess_num == answer) {
+                alert("You guessed the number!");
+                document.getElementById("result").innerHTML = '<img src="images/correct.jpg" width="300">';
                 break;
+            } 
+            else if (guess_num < answer) {
+                alert("Your guess is too low.");
+                // Optimization: If guess was 10, min becomes 11
+                min = guess_num + 1; 
+                chances--;
+            } 
+            else {
+                alert("Your guess is too high.");
+                // Optimization: If guess was 90, max becomes 89
+                max = guess_num - 1; 
+                chances--;
             }
 
-            guess_num = window.prompt(
-                'Guess a number between ' + min + ' and ' + max +
-                '. You have ' + chances + ' chances left:'
-            );
+            // Check for Game Over inside loop
+            if (chances == 0) {
+                alert("Sorry, you ran out of chances. The number was " + answer + ".");
+                document.getElementById("result").innerHTML = '<img src="images/wrong.jpg" width="300">';
+            }
         }
-
-
-        if (guess_num == answer) {
-            alert('You guessed the number in ' + chances + ' chances.<br>');
-            document.getElementById('result').innerHTML = '<img src="/Lab3_GuessNum/images/correct.jpg" alt="correct Guess" width="300">';
-        }
-        else {
-            alert('Sorry, the number was ' + answer + '.<br>');
-            document.getElementById('result').innerHTML = '<img src="/Lab3_GuessNum/images/wrong.jpg" alt="wrong Guess" width="300">';
-        }
-
     </script>
 </body>
 </html>
