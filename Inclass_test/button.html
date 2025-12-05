@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+    <!-- Buttons with JavaScript functionality -->
     <div class="button-container">
             <input type="button" id="Button1" value="1 button" onclick="
             alert('you clicked button 1');">
@@ -32,27 +33,66 @@
             alert('current date:'+ Date())">
     </div>
 
+    <!-- Buttons with JavaScript functionality -->
     <script>
         alert('current date:'+ Date())
     </script>
 
-    <script>
+    <!-- Prompting user for name and displaying greeting -->
+    <!-- <script>
         var name;
         name = window.prompt('enter your name:');
 
         document.writeln("<h1> Hello " + name + "! AND Welcome to HELL! </h1>");
-        alert('current date:'+ Date());
+        alert('current date:'+ Date()); -->
     
     </script>
 
-    <script>
+    <!-- Prompting user for two numbers and displaying their sum -->
+    <!-- <script>
         var first_num = window.prompt('enter first number:');
         var second_num = window.prompt('enter second number:');
         var sum = parseInt(first_num) + parseInt(second_num);
-        document.writeln("<h2> The sum of " + first_num + " and " + second_num + " is " + sum + " </h2>");
+        document.writeln("<h2> The sum of " + first_num + " and " + second_num + " is " + sum + " </h2>"); -->
     
     </script>
 
+     <!-- Prompting user for three numbers and displaying their average -->
+    <script>
+        var first_num = window.prompt('enter first number:');
+        var second_num = window.prompt('enter second number:');
+        var third_num = window.prompt('enter third number:');
+        let numbers = [Number(first_num), Number(second_num), Number(third_num)];
+        number.sort((a, b) => a - b);
+
+        if (first_num > second_num) {
+            document.body.style.backgroundColor = 'lightblue';
+        } else if (first_num < second_num) {
+            document.body.style.backgroundColor = 'orange';
+        } else {
+            document.body.style.backgroundColor = 'lightyellow';
+        }
+
+        document.write('You entered: ' + first_num + ', ' + second_num + ', ' + third_num);
+        document.write('Here is the number' + numbers.join(', '));
+
+    </script>
+
+
+    <!-- Prompting user for two numbers and displaying their sum -->
+     <div class="button-container">
+            <input type="button" id="Button5" value='5thButton' onClick="alert(first_num)">
+        </div>
+
+    <div class="button-container">
+            <input type="button" id="Button6" value='6thButton' onClick="alert(second_num)">
+    </div>"
+
+    <div class="button-container">
+            <input type="button" id="Button7" value='7thButton' onClick="alert(third_num)">
+    </div>"
+
+    You entered: first_num = <script>document.write(first_num);</script>,
 
     we can use JavaScript to make buttons interactive
     and use the oop to make a class of buttons
@@ -61,5 +101,6 @@
 
         </td>
     </tr>
+
 
 </body>
