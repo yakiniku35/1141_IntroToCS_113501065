@@ -29,7 +29,7 @@
             background: white;
             text-align: center;
             width: 100%;
-            max-width: 500px; /* 卡片寬度增加 */
+            max-width: 500px;
         }
 
         h1 {
@@ -84,8 +84,9 @@
             text-align: left;
             border-radius: 12px;
             background-color: #f9f9f9;
-            max-height: 300px;
-            overflow-y: auto;
+            height: 250px; /* 固定高度 */
+            overflow-y: auto; /* 超過高度時出現卷軸 */
+            scroll-behavior: smooth; /* 讓捲動有滑順的效果 */
         }
 
         .record-title {
@@ -98,16 +99,23 @@
         }
 
         #record p {
-            padding: 10px 0;
+            padding: 10px 5px;
             border-bottom: 1px dashed #ddd;
             margin: 0;
             color: #555;
             font-family: 'Courier New', monospace;
             font-size: 1.1em;
         }
-
-        #record p:last-child {
-            border-bottom: none;
+        
+        /* 強調最新的一筆紀錄 */
+        .new-entry {
+            background-color: #e3f2fd;
+            animation: flash 1s;
+        }
+        
+        @keyframes flash {
+            from { background-color: #ffff8d; }
+            to { background-color: #e3f2fd; }
         }
     </style>
 </head>
@@ -115,7 +123,7 @@
 <body>
     <div class="center-wrapper">
         <div class="card">
-            <h1>113501065_HW7_1A2B</h1>
+            <h1>113501065_HW6_1A2B</h1>
 
             <div class="input-area">
                 <p>Enter 4 unique numbers:</p>
@@ -123,8 +131,8 @@
                 <input type="submit" id="submit" value="Submit" onclick="submitNumber()">
             </div>
 
-            <div class="record-box">
-                <p class="record-title">Game record:</p>
+            <div class="record-box" id="recordBox">
+                <div class="record-title">Game record:</div>
                 <div id="record"></div>
             </div>
         </div>
@@ -142,17 +150,15 @@
             }
         });
 
-        // 產生不重複 4 位數
         function generateAnswer() {
             let digits = ['0','1','2','3','4','5','6','7','8','9'];
             let ans = "";
-
             while (ans.length < 4) {
                 let index = Math.floor(Math.random() * digits.length);
                 ans += digits[index];
                 digits.splice(index, 1);
             }
-            console.log("Cheat Sheet: " + ans); // 開發測試用，實際上線可拿掉
+            console.log("Cheat Sheet: " + ans); 
             return ans;
         }
 
@@ -160,29 +166,23 @@
             const inputField = document.getElementById("input");
             const input = inputField.value.trim();
 
-            // 驗證
             if (!isValid(input)) {
                 alert("Invalid input! Please enter 4 unique digits.");
-                inputField.value = ""; // 錯誤時也清空
+                inputField.value = "";
                 inputField.focus();
                 return;
             }
 
             attempts++;
-
-            // 計算 A B
             let result = checkAB(input, answer);
-
-            // 更新紀錄
+            
+            // 更新紀錄 (這會觸發捲動)
             updateRecord(input, result);
 
-            // 清空輸入框並聚焦
             inputField.value = "";
             inputField.focus();
 
-            // 猜對
             if (result === "4A0B") {
-                // 使用 setTimeout 讓畫面先渲染出 4A0B 再跳出 alert
                 setTimeout(() => {
                     alert("Congratulations! You got it in " + attempts + " attempts!");
                     resetGame();
@@ -198,7 +198,6 @@
             }
         }
 
-        // 驗證輸入是否合法
         function isValid(str) {
             if (str.length !== 4) return false;
             if (!/^\d{4}$/.test(str)) return false;
@@ -206,7 +205,6 @@
             return set.size === 4;
         }
 
-        // 計算 A B
         function checkAB(guess, ans) {
             let A = 0, B = 0;
             for (let i = 0; i < 4; i++) {
@@ -216,11 +214,17 @@
             return `${A}A${B}B`;
         }
 
-        // 更新紀錄
+        // --- 關鍵修改 ---
         function updateRecord(input, result) {
-            const recordBox = document.getElementById("record");
-            recordBox.innerHTML += `<p>第 ${attempts} 次：${input} — <strong>${result}</strong></p>`;
-            recordBox.scrollTop = recordBox.scrollHeight; // 自動捲動到最新紀錄
+            const recordContent = document.getElementById("record");
+            const recordBox = document.getElementById("recordBox");
+            
+            // 1. 把新紀錄加在最下面 (beforeend)
+            recordContent.innerHTML += `<p class="new-entry">第 ${attempts} 次：${input} — <strong>${result}</strong></p>`;
+            
+            // 2. 這一行就是讓它「轉」下去的關鍵！
+            // 將卷軸位置 (scrollTop) 設定為 內容總高度 (scrollHeight)
+            recordBox.scrollTop = recordBox.scrollHeight;
         }
     </script>
 </body>
