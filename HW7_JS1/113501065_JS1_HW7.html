@@ -84,9 +84,9 @@
             text-align: left;
             border-radius: 12px;
             background-color: #f9f9f9;
-            height: 250px; /* 固定高度 */
-            overflow-y: auto; /* 超過高度時出現卷軸 */
-            scroll-behavior: smooth; /* 讓捲動有滑順的效果 */
+            height: 250px;
+            overflow-y: auto;
+            scroll-behavior: smooth;
         }
 
         .record-title {
@@ -98,24 +98,26 @@
             font-size: 1.2em;
         }
 
-        #record p {
+        /* 一般紀錄的樣式 */
+        .record-entry {
             padding: 10px 5px;
             border-bottom: 1px dashed #ddd;
             margin: 0;
             color: #555;
             font-family: 'Courier New', monospace;
             font-size: 1.1em;
+            transition: background-color 0.5s ease; /* 加入過渡效果，讓顏色變化更順 */
         }
-        
-        /* 強調最新的一筆紀錄 */
-        .new-entry {
-            background-color: #e3f2fd;
-            animation: flash 1s;
+
+        /* 只有這個 class 會閃爍 */
+        .flash {
+            animation: highlight 1.5s ease-in-out infinite alternate;
+            border-radius: 4px;
         }
-        
-        @keyframes flash {
-            from { background-color: #ffff8d; }
-            to { background-color: #e3f2fd; }
+
+        @keyframes highlight {
+            from { background-color: transparent; }
+            to { background-color: #fff9c4; /* 淺黃色 */ }
         }
     </style>
 </head>
@@ -139,11 +141,9 @@
     </div>
 
     <script>
-        // 初始化
         let answer = generateAnswer();
         let attempts = 0;
 
-        // 監聽 Enter 鍵
         document.getElementById("input").addEventListener("keypress", function(event) {
             if (event.key === "Enter") {
                 submitNumber();
@@ -176,7 +176,6 @@
             attempts++;
             let result = checkAB(input, answer);
             
-            // 更新紀錄 (這會觸發捲動)
             updateRecord(input, result);
 
             inputField.value = "";
@@ -214,16 +213,23 @@
             return `${A}A${B}B`;
         }
 
-        // --- 關鍵修改 ---
         function updateRecord(input, result) {
             const recordContent = document.getElementById("record");
             const recordBox = document.getElementById("recordBox");
             
-            // 1. 把新紀錄加在最下面 (beforeend)
-            recordContent.innerHTML += `<p class="new-entry">第 ${attempts} 次：${input} — <strong>${result}</strong></p>`;
+
+            const oldFlashes = document.querySelectorAll('.flash');
+            oldFlashes.forEach(el => el.classList.remove('flash'));
+
+
+            const newP = document.createElement("p");
+            newP.className = "record-entry flash"; // 同時加上基礎樣式和閃爍樣式
+            newP.innerHTML = `第 ${attempts} 次：${input} — <strong>${result}</strong>`;
             
-            // 2. 這一行就是讓它「轉」下去的關鍵！
-            // 將卷軸位置 (scrollTop) 設定為 內容總高度 (scrollHeight)
+
+            recordContent.appendChild(newP);
+            
+
             recordBox.scrollTop = recordBox.scrollHeight;
         }
     </script>
