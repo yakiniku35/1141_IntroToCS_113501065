@@ -1,53 +1,227 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>113501065_JS1_HW7</title>
-        <style>
-            html, body {
-                height: 100%;
-                margin: 0;
-            }
+<head>
+    <meta charset="UTF-8">
+    <title>113501065_JS1_HW7</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
 
-            .center-wrapper {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                background-color: rgb(240, 240, 240);
-            }
+        .center-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-            .card {
-                padding: 24px;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-                background: white;
-                text-align: center;
-            }
-        </style>
-    </head>
+        .card {
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            background: white;
+            text-align: center;
+            width: 100%;
+            max-width: 500px; /* 卡片寬度增加 */
+        }
 
-    <body>
-        <div class="center-wrapper">
-            <div class="card">
-                <h1>113501065_HW6_1A2B</h1>
-                <div class="input-area">
-                    Enter 4 unique numbers numbers:
-                    <input type="text" id="input" placeholder="Enter a number">
-                    <input type="button" id="submit" value="Submit" onclick="submitNumber()">
-                </div>
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
 
-                <div style="border: 1px solid black; padding: 16px; margin-top: 16px;">
-                    <div style="text-align: left; display: flex; justify-content: space-between;">
-                        <p >Game record:</p>
-                    </div>
-                </div>
+        .input-area {
+            margin-bottom: 30px;
+        }
+
+        .input-area p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        #input {
+            padding: 12px 16px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-size: 1.1em;
+            width: 180px;
+            margin-right: 10px;
+            transition: border-color 0.3s;
+        }
+
+        #input:focus {
+            border-color: #4a90e2;
+            outline: none;
+        }
+
+        #submit {
+            padding: 12px 24px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #submit:hover {
+            background-color: #357abd;
+        }
+
+        .record-box {
+            border: 1px solid #eee;
+            padding: 20px;
+            text-align: left;
+            border-radius: 12px;
+            background-color: #f9f9f9;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .record-title {
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        #record p {
+            padding: 10px 0;
+            border-bottom: 1px dashed #ddd;
+            margin: 0;
+            color: #555;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+        }
+
+        #record p:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center-wrapper">
+        <div class="card">
+            <h1>113501065_HW6_1A2B</h1>
+
+            <div class="input-area">
+                <p>Enter 4 unique numbers:</p>
+                <input type="text" id="input" placeholder="Enter a number" maxlength="4">
+                <input type="submit" id="submit" value="Submit" onclick="submitNumber()">
+            </div>
+
+            <div class="record-box">
+                <p class="record-title">Game record:</p>
+                <div id="record"></div>
             </div>
         </div>
+    </div>
 
-        <script>
+    <script>
+        // 初始化
+        let answer = generateAnswer();
+        let attempts = 0;
 
-        </script>
-    </body>
+        // 監聽 Enter 鍵
+        document.getElementById("input").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                submitNumber();
+            }
+        });
 
+        // 產生不重複 4 位數
+        function generateAnswer() {
+            let digits = ['0','1','2','3','4','5','6','7','8','9'];
+            let ans = "";
+
+            while (ans.length < 4) {
+                let index = Math.floor(Math.random() * digits.length);
+                ans += digits[index];
+                digits.splice(index, 1);
+            }
+            console.log("Cheat Sheet: " + ans); // 開發測試用，實際上線可拿掉
+            return ans;
+        }
+
+        function submitNumber() {
+            const inputField = document.getElementById("input");
+            const input = inputField.value.trim();
+
+            // 驗證
+            if (!isValid(input)) {
+                alert("Invalid input! Please enter 4 unique digits.");
+                inputField.value = ""; // 錯誤時也清空
+                inputField.focus();
+                return;
+            }
+
+            attempts++;
+
+            // 計算 A B
+            let result = checkAB(input, answer);
+
+            // 更新紀錄
+            updateRecord(input, result);
+
+            // 清空輸入框並聚焦
+            inputField.value = "";
+            inputField.focus();
+
+            // 猜對
+            if (result === "4A0B") {
+                // 使用 setTimeout 讓畫面先渲染出 4A0B 再跳出 alert
+                setTimeout(() => {
+                    alert("Congratulations! You got it in " + attempts + " attempts!");
+                    resetGame();
+                }, 100);
+            }
+        }
+
+        function resetGame() {
+            if(confirm("Play again?")) {
+                answer = generateAnswer();
+                attempts = 0;
+                document.getElementById("record").innerHTML = "";
+            }
+        }
+
+        // 驗證輸入是否合法
+        function isValid(str) {
+            if (str.length !== 4) return false;
+            if (!/^\d{4}$/.test(str)) return false;
+            let set = new Set(str);
+            return set.size === 4;
+        }
+
+        // 計算 A B
+        function checkAB(guess, ans) {
+            let A = 0, B = 0;
+            for (let i = 0; i < 4; i++) {
+                if (guess[i] === ans[i]) A++;
+                else if (ans.includes(guess[i])) B++;
+            }
+            return `${A}A${B}B`;
+        }
+
+        // 更新紀錄
+        function updateRecord(input, result) {
+            const recordBox = document.getElementById("record");
+            recordBox.innerHTML += `<p>第 ${attempts} 次：${input} — <strong>${result}</strong></p>`;
+            recordBox.scrollTop = recordBox.scrollHeight; // 自動捲動到最新紀錄
+        }
+    </script>
+</body>
 </html>
