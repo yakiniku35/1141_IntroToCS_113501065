@@ -78,13 +78,17 @@
             background-color: #357abd;
         }
 
+        /* --- 這裡修改了高度 --- */
         .record-box {
             border: 1px solid #eee;
             padding: 20px;
             text-align: left;
             border-radius: 12px;
             background-color: #f9f9f9;
-            height: 250px;
+            
+            /* 從 250px 改成 450px，可以顯示更多行 */
+            height: 450px; 
+            
             overflow-y: auto;
             scroll-behavior: smooth;
         }
@@ -106,7 +110,7 @@
             color: #555;
             font-family: 'Courier New', monospace;
             font-size: 1.1em;
-            transition: background-color 0.5s ease; /* 加入過渡效果，讓顏色變化更順 */
+            transition: background-color 0.5s ease;
         }
 
         /* 只有這個 class 會閃爍 */
@@ -217,19 +221,19 @@
             const recordContent = document.getElementById("record");
             const recordBox = document.getElementById("recordBox");
             
-
+            // 1. 移除舊的閃爍
             const oldFlashes = document.querySelectorAll('.flash');
             oldFlashes.forEach(el => el.classList.remove('flash'));
 
-
+            // 2. 建立新元素並加上閃爍
             const newP = document.createElement("p");
-            newP.className = "record-entry flash"; // 同時加上基礎樣式和閃爍樣式
+            newP.className = "record-entry flash";
             newP.innerHTML = `第 ${attempts} 次：${input} — <strong>${result}</strong>`;
             
-
+            // 3. 放到最下面
             recordContent.appendChild(newP);
             
-
+            // 4. 自動捲到底
             recordBox.scrollTop = recordBox.scrollHeight;
         }
     </script>
