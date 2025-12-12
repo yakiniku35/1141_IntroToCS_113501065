@@ -10,9 +10,8 @@
     <input id="stopButton" type="button" value="Stop">
 </form>
 
-
-<!-- 100 顆骰子 -->
-<img id="die1" src="dice/die1.png" alt="die1">
+<div id="diceArea">
+    <img id="die1" src="dice/die1.png" alt="die1">
 <img id="die2" src="dice/die2.png" alt="die2">
 <img id="die3" src="dice/die3.png" alt="die3">
 <img id="die4" src="dice/die4.png" alt="die4">
@@ -112,24 +111,20 @@
 <img id="die98" src="dice/die6.png" alt="die6">
 <img id="die99" src="dice/die6.png" alt="die6">
 <img id="die100" src="dice/die6.png" alt="die6">
-<div id="diceArea">
-    <!-- 建議：實務可用 JS 自動產生，但既然你給了，我就不動 -->
-    <!-- 以下略，保持你原本的 100 顆 <img> -->
-    <!-- ... -->
-    <!-- 你原本的 die1 ～ die100 全部保留 -->
+    <!-- 這裡放 100 顆骰子的 img 標籤，保持你原本的 100 顆就好 -->
 </div>
 
 <div id="result"></div>
-
+<div id="averageStats"></div>
 
 <script>
     let dice = [];
     let counts = [0, 0, 0, 0, 0, 0];
     let totalRolls = 0;
     let rolling = null;
+    let averageCounts = {}; // 用來記錄每次平均數出現的次數
 
     function start() {
-
         // 取得 100 顆骰子
         for (let i = 1; i <= 100; i++) {
             dice.push(document.getElementById("die" + i));
@@ -140,18 +135,18 @@
         document.getElementById("rollButton").addEventListener("click", rollOnce);
     }
 
-    // 單次按鈕（Roll the Dice）
     function rollOnce() {
         rollDice();
         showResults();
+        showAverageStats();
     }
 
-    // 連續擲
     function startRolling() {
         if (rolling !== null) return;
         rolling = setInterval(() => {
             rollDice();
             showResults();
+            showAverageStats();
         }, 50);
     }
 
@@ -191,18 +186,37 @@
                         <td>${percent}%</td>
                     </tr>`;
         }
-        html += "</table>";
 
-        // 🎯 你要的平均值 (Σ frequency*face / totalRolls)
+        // 平均值
         let sum = 0;
         for (let i = 1; i <= 6; i++) {
             sum += counts[i - 1] * i;
         }
-        let average = totalRolls > 0 ? (sum / totalRolls).toFixed(4) : 0;
-
-        html += `<p><b>Average = ${average}</b></p>`;
+        let average = totalRolls > 0 ? (sum / totalRolls).toFixed(2) : 0;
+        html += `<tr><td colspan="3"><b>Current Average = ${average}</b></td></tr>`;
 
         resultDiv.innerHTML = html;
+
+        // 累計平均數出現次數
+        if (average !== 0) {
+            if (!averageCounts[average]) averageCounts[average] = 0;
+            averageCounts[average]++;
+        }
+    }
+
+    function showAverageStats() {
+        let avgDiv = document.getElementById("averageStats");
+
+        let html = "<h3>Average Number Frequency</h3>";
+        html += "<table border='1' cellpadding='5'><tr><th>Average</th><th>Frequency</th></tr>";
+
+        let sortedKeys = Object.keys(averageCounts).sort((a, b) => parseFloat(a) - parseFloat(b));
+        sortedKeys.forEach(avg => {
+            html += `<tr><td>${avg}</td><td>${averageCounts[avg]}</td></tr>`;
+        });
+
+        html += "</table>";
+        avgDiv.innerHTML = html;
     }
 
     window.onload = start;
