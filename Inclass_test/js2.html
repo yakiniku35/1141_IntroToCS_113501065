@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+    <meta charset="UTF-8">
+    <title>Dice Simulator with Statistics</title>
+
+    <!-- 引用 Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
 <form action="#">
     <input id="rollButton" type="button" value="Roll the Dice">
 </form>
@@ -10,143 +21,142 @@
     <input id="stopButton" type="button" value="Stop">
 </form>
 
+<!-- 100 顆骰子 -->
 <div id="diceArea">
-    <img id="die1" src="dice/die1.png" alt="die1">
-<img id="die2" src="dice/die2.png" alt="die2">
-<img id="die3" src="dice/die3.png" alt="die3">
-<img id="die4" src="dice/die4.png" alt="die4">
-<img id="die5" src="dice/die5.png" alt="die5">
-<img id="die6" src="dice/die6.png" alt="die6">
-<img id="die7" src="dice/die1.png" alt="die1">
-<img id="die8" src="dice/die2.png" alt="die2">
-<img id="die9" src="dice/die3.png" alt="die3">
-<img id="die10" src="dice/die4.png" alt="die4">
-<img id="die11" src="dice/die5.png" alt="die5">
-<img id="die12" src="dice/die6.png" alt="die6">
-<img id="die13" src="dice/die6.png" alt="die1">
-<img id="die14" src="dice/die6.png" alt="die2">
-<img id="die15" src="dice/die6.png" alt="die3">
-<img id="die16" src="dice/die6.png" alt="die6">
-<img id="die17" src="dice/die6.png" alt="die6">
-<img id="die18" src="dice/die6.png" alt="die6">
-<img id="die19" src="dice/die6.png" alt="die6">
-<img id="die20" src="dice/die6.png" alt="die6">
-<img id="die21" src="dice/die6.png" alt="die6">
-<img id="die22" src="dice/die6.png" alt="die6">
-<img id="die23" src="dice/die6.png" alt="die6">
-<img id="die24" src="dice/die6.png" alt="die6">
-<img id="die25" src="dice/die6.png" alt="die6">
-<img id="die26" src="dice/die6.png" alt="die6">
-<img id="die27" src="dice/die6.png" alt="die6">
-<img id="die28" src="dice/die6.png" alt="die6">
-<img id="die29" src="dice/die6.png" alt="die6">
-<img id="die30" src="dice/die6.png" alt="die6">
-<img id="die31" src="dice/die6.png" alt="die6">
-<img id="die32" src="dice/die6.png" alt="die6">
-<img id="die33" src="dice/die6.png" alt="die6">
-<img id="die34" src="dice/die6.png" alt="die6">
-<img id="die35" src="dice/die6.png" alt="die6">
-<img id="die36" src="dice/die6.png" alt="die6">
-<img id="die37" src="dice/die6.png" alt="die6">
-<img id="die38" src="dice/die6.png" alt="die6">
-<img id="die39" src="dice/die6.png" alt="die6">
-<img id="die40" src="dice/die6.png" alt="die6">
-<img id="die41" src="dice/die1.png" alt="die1">
-<img id="die42" src="dice/die2.png" alt="die2">
-<img id="die43" src="dice/die3.png" alt="die3">
-<img id="die44" src="dice/die4.png" alt="die4">
-<img id="die45" src="dice/die5.png" alt="die5">
-<img id="die46" src="dice/die6.png" alt="die6">
-<img id="die47" src="dice/die1.png" alt="die1">
-<img id="die48" src="dice/die2.png" alt="die2">
-<img id="die49" src="dice/die3.png" alt="die3">
-<img id="die50" src="dice/die4.png" alt="die4">
-<img id="die51" src="dice/die5.png" alt="die5">
-<img id="die52" src="dice/die6.png" alt="die6">
-<img id="die53" src="dice/die6.png" alt="die1">
-<img id="die54" src="dice/die6.png" alt="die2">
-<img id="die55" src="dice/die6.png" alt="die3">
-<img id="die56" src="dice/die6.png" alt="die6">
-<img id="die57" src="dice/die6.png" alt="die6">
-<img id="die58" src="dice/die6.png" alt="die6">
-<img id="die59" src="dice/die6.png" alt="die6">
-<img id="die60" src="dice/die6.png" alt="die6">
-<img id="die61" src="dice/die6.png" alt="die6">
-<img id="die62" src="dice/die6.png" alt="die6">
-<img id="die63" src="dice/die6.png" alt="die6">
-<img id="die64" src="dice/die6.png" alt="die6">
-<img id="die65" src="dice/die6.png" alt="die6">
-<img id="die66" src="dice/die6.png" alt="die6">
-<img id="die67" src="dice/die6.png" alt="die6">
-<img id="die68" src="dice/die6.png" alt="die6">
-<img id="die69" src="dice/die6.png" alt="die6">
-<img id="die70" src="dice/die6.png" alt="die6">
-<img id="die71" src="dice/die6.png" alt="die6">
-<img id="die72" src="dice/die6.png" alt="die6">
-<img id="die73" src="dice/die6.png" alt="die6">
-<img id="die74" src="dice/die6.png" alt="die6">
-<img id="die75" src="dice/die6.png" alt="die6">
-<img id="die76" src="dice/die6.png" alt="die6">
-<img id="die77" src="dice/die6.png" alt="die6">
-<img id="die78" src="dice/die6.png" alt="die6">
-<img id="die79" src="dice/die6.png" alt="die6">                                             
-<img id="die80" src="dice/die6.png" alt="die6">
-<img id="die81" src="dice/die6.png" alt="die6">
-<img id="die82" src="dice/die6.png" alt="die6">
-<img id="die83" src="dice/die6.png" alt="die6">
-<img id="die84" src="dice/die6.png" alt="die6">
-<img id="die85" src="dice/die6.png" alt="die6">
-<img id="die86" src="dice/die6.png" alt="die6">
-<img id="die87" src="dice/die6.png" alt="die6">
-<img id="die88" src="dice/die6.png" alt="die6">
-<img id="die89" src="dice/die6.png" alt="die6">
-<img id="die90" src="dice/die6.png" alt="die6">
-<img id="die91" src="dice/die6.png" alt="die6">
-<img id="die92" src="dice/die6.png" alt="die6">
-<img id="die93" src="dice/die6.png" alt="die6">
-<img id="die94" src="dice/die6.png" alt="die6">
-<img id="die95" src="dice/die6.png" alt="die6">
-<img id="die96" src="dice/die6.png" alt="die6">
-<img id="die97" src="dice/die6.png" alt="die6">
-<img id="die98" src="dice/die6.png" alt="die6">
-<img id="die99" src="dice/die6.png" alt="die6">
-<img id="die100" src="dice/die6.png" alt="die6">
-    <!-- 這裡放 100 顆骰子的 img 標籤，保持你原本的 100 顆就好 -->
+    <img id="die1" src="dice/die1.png">
+    <img id="die2" src="dice/die2.png">
+    <img id="die3" src="dice/die3.png">
+    <img id="die4" src="dice/die4.png">
+    <img id="die5" src="dice/die5.png">
+    <img id="die6" src="dice/die6.png">
+    <img id="die7" src="dice/die1.png">
+    <img id="die8" src="dice/die2.png">
+    <img id="die9" src="dice/die3.png">
+    <img id="die10" src="dice/die4.png">
+    <img id="die11" src="dice/die5.png">
+    <img id="die12" src="dice/die6.png">
+    <img id="die13" src="dice/die6.png">
+    <img id="die14" src="dice/die6.png">
+    <img id="die15" src="dice/die6.png">
+    <img id="die16" src="dice/die6.png">
+    <img id="die17" src="dice/die6.png">
+    <img id="die18" src="dice/die6.png">
+    <img id="die19" src="dice/die6.png">
+    <img id="die20" src="dice/die6.png">
+    <img id="die21" src="dice/die6.png">
+    <img id="die22" src="dice/die6.png">
+    <img id="die23" src="dice/die6.png">
+    <img id="die24" src="dice/die6.png">
+    <img id="die25" src="dice/die6.png">
+    <img id="die26" src="dice/die6.png">
+    <img id="die27" src="dice/die6.png">
+    <img id="die28" src="dice/die6.png">
+    <img id="die29" src="dice/die6.png">
+    <img id="die30" src="dice/die6.png">
+    <img id="die31" src="dice/die6.png">
+    <img id="die32" src="dice/die6.png">
+    <img id="die33" src="dice/die6.png">
+    <img id="die34" src="dice/die6.png">
+    <img id="die35" src="dice/die6.png">
+    <img id="die36" src="dice/die6.png">
+    <img id="die37" src="dice/die6.png">
+    <img id="die38" src="dice/die6.png">
+    <img id="die39" src="dice/die6.png">
+    <img id="die40" src="dice/die6.png">
+    <img id="die41" src="dice/die1.png">
+    <img id="die42" src="dice/die2.png">
+    <img id="die43" src="dice/die3.png">
+    <img id="die44" src="dice/die4.png">
+    <img id="die45" src="dice/die5.png">
+    <img id="die46" src="dice/die6.png">
+    <img id="die47" src="dice/die1.png">
+    <img id="die48" src="dice/die2.png">
+    <img id="die49" src="dice/die3.png">
+    <img id="die50" src="dice/die4.png">
+    <img id="die51" src="dice/die5.png">
+    <img id="die52" src="dice/die6.png">
+    <img id="die53" src="dice/die6.png">
+    <img id="die54" src="dice/die6.png">
+    <img id="die55" src="dice/die6.png">
+    <img id="die56" src="dice/die6.png">
+    <img id="die57" src="dice/die6.png">
+    <img id="die58" src="dice/die6.png">
+    <img id="die59" src="dice/die6.png">
+    <img id="die60" src="dice/die6.png">
+    <img id="die61" src="dice/die6.png">
+    <img id="die62" src="dice/die6.png">
+    <img id="die63" src="dice/die6.png">
+    <img id="die64" src="dice/die6.png">
+    <img id="die65" src="dice/die6.png">
+    <img id="die66" src="dice/die6.png">
+    <img id="die67" src="dice/die6.png">
+    <img id="die68" src="dice/die6.png">
+    <img id="die69" src="dice/die6.png">
+    <img id="die70" src="dice/die6.png">
+    <img id="die71" src="dice/die6.png">
+    <img id="die72" src="dice/die6.png">
+    <img id="die73" src="dice/die6.png">
+    <img id="die74" src="dice/die6.png">
+    <img id="die75" src="dice/die6.png">
+    <img id="die76" src="dice/die6.png">
+    <img id="die77" src="dice/die6.png">
+    <img id="die78" src="dice/die6.png">
+    <img id="die79" src="dice/die6.png">
+    <img id="die80" src="dice/die6.png">
+    <img id="die81" src="dice/die6.png">
+    <img id="die82" src="dice/die6.png">
+    <img id="die83" src="dice/die6.png">
+    <img id="die84" src="dice/die6.png">
+    <img id="die85" src="dice/die6.png">
+    <img id="die86" src="dice/die6.png">
+    <img id="die87" src="dice/die6.png">
+    <img id="die88" src="dice/die6.png">
+    <img id="die89" src="dice/die6.png">
+    <img id="die90" src="dice/die6.png">
+    <img id="die91" src="dice/die6.png">
+    <img id="die92" src="dice/die6.png">
+    <img id="die93" src="dice/die6.png">
+    <img id="die94" src="dice/die6.png">
+    <img id="die95" src="dice/die6.png">
+    <img id="die96" src="dice/die6.png">
+    <img id="die97" src="dice/die6.png">
+    <img id="die98" src="dice/die6.png">
+    <img id="die99" src="dice/die6.png">
+    <img id="die100" src="dice/die6.png">
 </div>
 
+<hr>
+
 <div id="result"></div>
-<div id="averageStats"></div>
+
+<h3>Average Occurrence Chart</h3>
+<canvas id="avgChart" width="400" height="200"></canvas>
+
 
 <script>
-    let dice = [];
+    var dice = [];
     let counts = [0, 0, 0, 0, 0, 0];
     let totalRolls = 0;
     let rolling = null;
-    let averageCounts = {}; // 用來記錄每次平均數出現的次數
+
+    //平均數出現次數
+    let averageCounts = {}; 
 
     function start() {
-        // 取得 100 顆骰子
         for (let i = 1; i <= 100; i++) {
             dice.push(document.getElementById("die" + i));
         }
 
         document.getElementById("startButton").addEventListener("click", startRolling);
         document.getElementById("stopButton").addEventListener("click", stopRolling);
-        document.getElementById("rollButton").addEventListener("click", rollOnce);
-    }
-
-    function rollOnce() {
-        rollDice();
-        showResults();
-        showAverageStats();
+        document.getElementById("rollButton").addEventListener("click", rollDice);
     }
 
     function startRolling() {
         if (rolling !== null) return;
+
         rolling = setInterval(() => {
             rollDice();
-            showResults();
-            showAverageStats();
         }, 50);
     }
 
@@ -161,6 +171,9 @@
             counts[value - 1]++;
             totalRolls++;
         });
+
+        showResults();
+        showAverageStats();
     }
 
     function setImage(die) {
@@ -184,42 +197,64 @@
                         <td>${i}</td>
                         <td>${freq}</td>
                         <td>${percent}%</td>
-                    </tr>`;
+                     </tr>`;
         }
 
-        // 平均值
+        html += "</table>";
+
+        resultDiv.innerHTML = html;
+    }
+
+    function showAverageStats() {
         let sum = 0;
         for (let i = 1; i <= 6; i++) {
             sum += counts[i - 1] * i;
         }
-        let average = totalRolls > 0 ? (sum / totalRolls).toFixed(2) : 0;
-        html += `<tr><td colspan="3"><b>Current Average = ${average}</b></td></tr>`;
 
-        resultDiv.innerHTML = html;
+        let avg = totalRolls > 0 ? (sum / totalRolls).toFixed(3) : 0;
 
-        // 累計平均數出現次數
-        if (average !== 0) {
-            if (!averageCounts[average]) averageCounts[average] = 0;
-            averageCounts[average]++;
+        //紀錄平均數出現次數
+        if (!averageCounts[avg]) {
+            averageCounts[avg] = 0;
         }
+        averageCounts[avg]++;
+
+        updateChart();
     }
 
-    function showAverageStats() {
-        let avgDiv = document.getElementById("averageStats");
+    // 長條圖
+    let avgChart = null;
 
-        let html = "<h3>Average Number Frequency</h3>";
-        html += "<table border='1' cellpadding='5'><tr><th>Average</th><th>Frequency</th></tr>";
+    function updateChart() {
+        let ctx = document.getElementById("avgChart").getContext("2d");
 
-        let sortedKeys = Object.keys(averageCounts).sort((a, b) => parseFloat(a) - parseFloat(b));
-        sortedKeys.forEach(avg => {
-            html += `<tr><td>${avg}</td><td>${averageCounts[avg]}</td></tr>`;
+        let keys = Object.keys(averageCounts).sort((a, b) => parseFloat(a) - parseFloat(b));
+        let values = keys.map(k => averageCounts[k]);
+
+        if (avgChart !== null) {
+            avgChart.destroy();
+        }
+
+        avgChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: keys,
+                datasets: [{
+                    label: "Average Frequency",
+                    data: values,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
         });
-
-        html += "</table>";
-        avgDiv.innerHTML = html;
     }
 
     window.onload = start;
 </script>
 
+</body>
 </html>
