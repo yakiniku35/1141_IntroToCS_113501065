@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<form action="#">
+    <input id="rollButton" type="button" value="Roll the Dice">
+</form>
+
+<img id="die1" src="dice/die1.png" alt="die1">
+<img id="die2" src="dice/die2.png" alt="die2">
+<img id="die3" src="dice/die3.png" alt="die3">
+<img id="die4" src="dice/die4.png" alt="die4">
+<img id="die5" src="dice/die5.png" alt="die5">
+<img id="die6" src="dice/die6.png" alt="die6">
+<img id="die7" src="dice/die1.png" alt="die1">
+<img id="die8" src="dice/die2.png" alt="die2">
+<img id="die9" src="dice/die3.png" alt="die3">
+<img id="die10" src="dice/die4.png" alt="die4">
+<img id="die11" src="dice/die5.png" alt="die5">
+<img id="die12" src="dice/die6.png" alt="die6">
+
+<div id="result">
+
+
+</div>
+
+
+<script>
+    var dice = [];
+
+    function start() {
+        for (let i = 1; i <= 12; i++) {
+            dice.push(document.getElementById("die" + i));
+        }
+        document.getElementById("rollButton").addEventListener("click", rollDice);
+    }
+
+    function rollDice() {
+        dice.forEach(die => setImage(die));
+    }
+
+    function setImage(die) {
+        let dieValue = Math.floor(Math.random() * 6) + 1;
+        die.setAttribute("src", "dice/die" + dieValue + ".png");
+        die.setAttribute("alt", "die" + dieValue);
+        return dieValue;
+    }
+
+
+    let counts = [0, 0, 0, 0, 0, 0]; // index 0~5 對應骰子 1~6
+    let totalRolls = 0;
+
+    function rollDice() {
+        dice.forEach(die => {
+            let value = setImage(die);
+            counts[value - 1]++; // 累加結果
+            totalRolls++;
+        });
+
+        showResults();
+    }
+
+    function setImage(die) {
+        let dieValue = Math.floor(Math.random() * 6) + 1;
+        die.setAttribute("src", "dice/die" + dieValue + ".png");
+        die.setAttribute("alt", "die" + dieValue);
+        return dieValue; // 回傳這次的點數
+    }
+
+    function showResults() {
+        let resultDiv = document.getElementById("result");
+
+        let html = "<h3>Dice Statistics</h3>";
+        html += "<table border='1' cellpadding='5'><tr><th>Face</th><th>Frequency</th><th>Percentage</th></tr>";
+
+        for (let i = 1; i <= 6; i++) {
+            let freq = counts[i - 1];
+            let percent = totalRolls > 0 ? ((freq / totalRolls) * 100).toFixed(2) : 0;
+
+            html += `<tr>
+                        <td>${i}</td>
+                        <td>${freq}</td>
+                        <td>${percent}%</td>
+                    </tr>`;
+        }
+
+        html += "</table>";
+
+        resultDiv.innerHTML = html;
+    }
+
+    
+    window.onload = start;
+</script>
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
