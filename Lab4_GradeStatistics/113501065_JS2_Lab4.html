@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>113501065_JS2_Lab4</title>
+    <link rel="stylesheet" href="113501065_JS2_Lab4.css">
+</head>
+
+<body>
+    <h1>113501065_JS2_Lab4</h1>
+
+    <div class="input-area">
+        <input type="number" id="mathInput" placeholder="Math" maxlength="3">
+        <input type="number" id="engInput" placeholder="English" maxlength="3">
+        <button id="submitBtn">Submit</button>
+    </div>
+
+    <div id="tableArea">
+        <table id="scoreTable" border="1">
+            <thead>
+                <tr style="background-color: rgb(228, 226, 226)">
+                    <th>#</th>
+                    <th>Math</th>
+                    <th>English</th>
+                    <th>Average</th>
+                </tr>
+            </thead>
+
+            <tbody id="tableBody"></tbody>
+
+            <tfoot>
+                <tr>
+                    <td>Avg</td>
+                    <td id="mathAvg">0</td>
+                    <td id="engAvg">0</td>
+                    <td id="overallAvg">0</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <script src="113501065_JS2_Lab4.js"></script>
+</body>
+</html>

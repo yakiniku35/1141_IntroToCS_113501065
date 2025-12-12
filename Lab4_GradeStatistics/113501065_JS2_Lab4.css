@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+h1 {
+    color: #444;
+}
+
+.input-area {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.input-area input {
+    margin: 5px;
+    padding: 8px;
+    width: 120px;
+}
+
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 10px 15px;
+}
