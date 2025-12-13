@@ -89,12 +89,11 @@ calculateButton.onclick = function () {
     // Check if result is a number (to handle the "Error" string from divide)
     let finalOutput = "";
     if (typeof result === "number") {
-        finalOutput = "Result = " + result.toFixed(2); [cite_start]// Round to 2 decimals [cite: 52]
+        finalOutput = "Result = " + result.toFixed(2); // Round to 2 decimals [cite: 52]
     } else {
         finalOutput = result; // Show error message
     }
 
-    // Ensure you have <h2 id="resultDisplay"></h2> in your HTML to see this!
     let resultElement = document.getElementById("resultDisplay");
     if (resultElement) {
         resultElement.innerText = finalOutput;

@@ -1,27 +1,66 @@
 body { 
     font-family: Arial, sans-serif; 
     text-align: center; 
-    background-color: #f0f0f0; 
+    /* Light background to make the inputs pop */
+    background-color: #fdfdfd; 
     padding: 20px; 
 }
 
-h1 { color: #333; 
-    margin-bottom: 30px; 
+h1 { 
+    color: #000; 
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
-.input-area {
-    margin: 20px auto;
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    color: #000;
+}
+
+/* Style the container for inputs to center them */
+.input-area, .select-area, .button-area, .result-area {
+    margin: 10px auto;
     text-align: center;
 }
 
-.input-area input {
-    margin: 5px;
-    padding: 8px;
-    width: 120px;
+/* Make inputs, dropdowns, and buttons look consistent */
+input, select {
+    padding: 10px;
+    width: 300px; /* Fixed width to match screenshot  */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; /* Ensures padding doesn't mess up width */
 }
 
-.button-area {
-    background-color: rgb(237, 136, 22);
-    margin: 20px auto;
-    text-align: center;
+/* Specific styling for the dropdown to align text */
+select {
+    background-color: white;
+}
+
+/* Style the button to match the brown bar in the screenshot  */
+#calculateButton {
+    background-color: #8B4513; /* SaddleBrown color */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px; /* Same width as inputs */
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#calculateButton:hover {
+    background-color: #a0522d; /* Slightly lighter brown on hover */
+}
+
+/* Style the result text */
+#resultDisplay {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #333;
 }
