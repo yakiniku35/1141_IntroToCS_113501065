@@ -19,3 +19,9 @@ h1 { color: #333;
     padding: 8px;
     width: 120px;
 }
+
+.button-area {
+    background-color: rgb(237, 136, 22);
+    margin: 20px auto;
+    text-align: center;
+}
