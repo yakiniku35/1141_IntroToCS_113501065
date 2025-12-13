@@ -52,8 +52,8 @@ operationSelect.onchange = updateButtonLabel;
 updateButtonLabel();
 
 
-// --- PART 3: Calculation Logic (Click Event) ---
-calculateButton.onclick = function () {
+// --- PART 3: Calculation Logic ---
+function calculate() {
     // 1. Get values and convert strings to numbers
     let num1 = parseFloat(document.getElementById("math1Input").value);
     let num2 = parseFloat(document.getElementById("math2Input").value);
@@ -89,7 +89,7 @@ calculateButton.onclick = function () {
     // Check if result is a number (to handle the "Error" string from divide)
     let finalOutput = "";
     if (typeof result === "number") {
-        finalOutput = "Result = " + result.toFixed(2); // Round to 2 decimals [cite: 52]
+        finalOutput = "Result = " + result.toFixed(2); // Round to 2 decimals
     } else {
         finalOutput = result; // Show error message
     }
@@ -100,4 +100,7 @@ calculateButton.onclick = function () {
     } else {
         alert(finalOutput); // Fallback if HTML isn't updated
     }
-};
+}
+
+// Attach the calculate function to button click event
+calculateButton.onclick = calculate;
