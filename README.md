@@ -28,10 +28,16 @@ Appendix/
         └── 2025Week-8-HTML-HW.pdf
     ├── HW6/
         └── 2025Week-9-CSS-HW6.pdf
+    ├── HW8/
+        └── 2025_JS2_LabHW.pdf
     ├── Lab1/
         └── 2025Week-8-HTML-Lab.pdf
     ├── Lab2/
         └── 2025Week-9-CSS-Lab.pdf
+    ├── Lab3/
+        └── 2025 Intro_JS1_LabHW.pdf
+    ├── Lab4/
+        └── 2025_JS2_LabHW.pdf
     └── .DS_Store
 HW1_Github/
     └── HelloWorld.txt
@@ -100,9 +106,22 @@ README.md
 - **HW3/**: Excel 相關檔案
   - `HW3.xlsx`: Excel 檔案
   - `Assignment Instructions.txt`: Excel 檔案的說明文件
-- **HWW4/**:
-- **HWW5/**:
-- **HWW6/**:
+- **HW4/**: VBA 範例程式碼
+  - `範例程式碼.pdf`: VBA 範例檔案
+- **HW5/**: HTML 作業說明
+  - `2025Week-8-HTML-HW.pdf`: HTML 作業指引
+- **HW6/**: CSS 作業說明
+  - `2025Week-9-CSS-HW6.pdf`: CSS 作業指引
+- **HW8/**: JavaScript 2 作業說明
+  - `2025_JS2_LabHW.pdf`: JS2 作業與實驗指引
+- **Lab1/**: HTML 實驗說明
+  - `2025Week-8-HTML-Lab.pdf`: HTML 實驗指引
+- **Lab2/**: CSS 實驗說明
+  - `2025Week-9-CSS-Lab.pdf`: CSS 實驗指引
+- **Lab3/**: JavaScript 1 實驗說明
+  - `2025 Intro_JS1_LabHW.pdf`: JS1 實驗與作業指引
+- **Lab4/**: JavaScript 2 實驗說明
+  - `2025_JS2_LabHW.pdf`: JS2 實驗與作業指引
 
 ## 📝 作業列表
 
