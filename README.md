@@ -41,7 +41,7 @@ Appendix/
     └── .DS_Store
 HW1_Github/
     └── HelloWorld.txt
-Hw2_DeepDreamGenerator/
+HW2_DeepDreamGenerator/
     └── HW2.pdf
 HW3_Excel1/
     └── HW3_113501065.xlsx
