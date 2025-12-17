@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Grade Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Course Final Grade Calculator</h1>
+        
+        <div class="section">
+            <h2>Lab + Homework (38%)</h2>
+            <div class="input-group">
+                <label>Deep Dream Generator:</label>
+                <input type="number" id="deepDream" min="0" max="100" step="0.1" value="0">
+                <span class="hint">% → <span id="deepDreamPts">0.00</span> / 5 pts</span>
+            </div>
+            <div class="input-group">
+                <label>MS Excel VBA:</label>
+                <input type="number" id="excelVBA" min="0" max="100" step="0.1" value="0">
+                <span class="hint">% → <span id="excelVBAPts">0.00</span> / 5 pts</span>
+            </div>
+            <div class="input-group">
+                <label>HTML Lab + HW:</label>
+                <input type="number" id="htmlScore" min="0" max="100" step="0.1" value="0">
+                <span class="hint">% → <span id="htmlScorePts">0.00</span> / 7 pts</span>
+            </div>
+            <div class="input-group">
+                <label>CSS Lab + HW:</label>
+                <input type="number" id="cssScore" min="0" max="100" step="0.1" value="0">
+                <span class="hint">% → <span id="cssScorePts">0.00</span> / 7 pts</span>
+            </div>
+            <div class="input-group">
+                <label>JavaScript #1 Lab + HW:</label>
+                <input type="number" id="js1Score" min="0" max="100" step="0.1" value="0">
+                <span class="hint">% → <span id="js1ScorePts">0.00</span> / 7 pts</span>
+            </div>
+            <div class="input-group">
+                <label>JavaScript #2 Lab + HW:</label>
+                <input type="number" id="js2Score" min="0" max="100" step="0.1" value="0">
+                <span class="hint">% → <span id="js2ScorePts">0.00</span> / 7 pts</span>
+            </div>
+            <div class="subtotal">
+                Subtotal: <span id="labHwSubtotal">0</span> / 38 pts
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Midterm (30%)</h2>
+            <div class="input-group">
+                <label>Midterm Score:</label>
+                <input type="number" id="midterm" min="0" max="100" step="0.1" value="0">
+                <span class="hint">% → <span id="midtermPts">0.00</span> / 30 pts</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Final Group Project (35%)</h2>
+            <div class="input-group">
+                <label>TA Score (out of 100):</label>
+                <input type="number" id="taScore" min="0" max="100" step="0.1" value="0">
+            </div>
+            <div class="input-group">
+                <label>Teacher Score (out of 100):</label>
+                <input type="number" id="teacherScore" min="0" max="100" step="0.1" value="0">
+            </div>
+            <div class="input-group">
+                <label>Other Groups Score (out of 100):</label>
+                <input type="number" id="otherGroupsScore" min="0" max="100" step="0.1" value="0">
+            </div>
+            <div class="input-group">
+                <label>Your Group Members Score (out of 10):</label>
+                <input type="number" id="groupMembersScore" min="0" max="10" step="0.1" value="0">
+            </div>
+            <div class="calculation-details">
+                <p>A (TA + Teacher avg): <span id="scoreA">0.00</span></p>
+                <p>B (Other groups avg): <span id="scoreB">0.00</span></p>
+                <p>Temp Final Score (A×0.5 + B×0.5): <span id="tempScore">0.00</span></p>
+                <p>C (Group members avg): <span id="scoreC">0.00</span></p>
+                <p>Final Project Score: <span id="finalProjectScore">0.00</span> / 35 pts</p>
+            </div>
+        </div>
+
+        <div class="section bonus-section">
+            <h2>Bonus: Course Participation (5%)</h2>
+            <div class="input-group">
+                <label>Participation Score:</label>
+                <input type="number" id="bonus" min="0" max="100" step="0.1" value="0">
+                <span class="hint">% → <span id="bonusPts">0.00</span> / 5 pts</span>
+            </div>
+        </div>
+
+        <button id="calculateBtn">Calculate Final Grade</button>
+
+        <div class="result" id="result">
+            <h2>Your Final Grade</h2>
+            <div class="final-score">
+                <span id="finalScore">0.00</span> / 108 pts
+            </div>
+            <div class="percentage">
+                Percentage: <span id="percentage">0.00</span>%
+            </div>
+            <div class="letter-grade">
+                Letter Grade: <span id="letterGrade">-</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
