@@ -56,12 +56,12 @@ Object.keys(inputs).forEach(key => {
 
 function updateLabHwSubtotal() {
     // Convert percentage to actual points
-    const deepDreamPts = (parseFloat(inputs.deepDream.value) / 100) * 5;
-    const excelVBAPts = (parseFloat(inputs.excelVBA.value) / 100) * 5;
-    const htmlScorePts = (parseFloat(inputs.htmlScore.value) / 100) * 7;
-    const cssScorePts = (parseFloat(inputs.cssScore.value) / 100) * 7;
-    const js1ScorePts = (parseFloat(inputs.js1Score.value) / 100) * 7;
-    const js2ScorePts = (parseFloat(inputs.js2Score.value) / 100) * 7;
+    const deepDreamPts = ((parseFloat(inputs.deepDream.value) || 0) / 100) * 5;
+    const excelVBAPts = ((parseFloat(inputs.excelVBA.value) || 0) / 100) * 5;
+    const htmlScorePts = ((parseFloat(inputs.htmlScore.value) || 0) / 100) * 7;
+    const cssScorePts = ((parseFloat(inputs.cssScore.value) || 0) / 100) * 7;
+    const js1ScorePts = ((parseFloat(inputs.js1Score.value) || 0) / 100) * 7;
+    const js2ScorePts = ((parseFloat(inputs.js2Score.value) || 0) / 100) * 7;
     
     // Update individual displays
     displays.deepDreamPts.textContent = deepDreamPts.toFixed(2);
@@ -76,12 +76,12 @@ function updateLabHwSubtotal() {
 }
 
 function updateMidtermDisplay() {
-    const midtermPts = (parseFloat(inputs.midterm.value) / 100) * 30;
+    const midtermPts = ((parseFloat(inputs.midterm.value) || 0) / 100) * 30;
     displays.midtermPts.textContent = midtermPts.toFixed(2);
 }
 
 function updateBonusDisplay() {
-    const bonusPts = (parseFloat(inputs.bonus.value) / 100) * 5;
+    const bonusPts = ((parseFloat(inputs.bonus.value) || 0) / 100) * 5;
     displays.bonusPts.textContent = bonusPts.toFixed(2);
 }
 
@@ -116,15 +116,15 @@ function updateFinalProjectCalculation() {
 
 function calculateFinalGrade() {
     // Lab + Homework (38%) - convert percentage to points
-    const labHwScore = (parseFloat(inputs.deepDream.value) / 100) * 5 +
-                       (parseFloat(inputs.excelVBA.value) / 100) * 5 +
-                       (parseFloat(inputs.htmlScore.value) / 100) * 7 +
-                       (parseFloat(inputs.cssScore.value) / 100) * 7 +
-                       (parseFloat(inputs.js1Score.value) / 100) * 7 +
-                       (parseFloat(inputs.js2Score.value) / 100) * 7;
+    const labHwScore = ((parseFloat(inputs.deepDream.value) || 0) / 100) * 5 +
+                       ((parseFloat(inputs.excelVBA.value) || 0) / 100) * 5 +
+                       ((parseFloat(inputs.htmlScore.value) || 0) / 100) * 7 +
+                       ((parseFloat(inputs.cssScore.value) || 0) / 100) * 7 +
+                       ((parseFloat(inputs.js1Score.value) || 0) / 100) * 7 +
+                       ((parseFloat(inputs.js2Score.value) || 0) / 100) * 7;
     
     // Midterm (30%) - convert percentage to points
-    const midtermScore = (parseFloat(inputs.midterm.value) / 100) * 30;
+    const midtermScore = ((parseFloat(inputs.midterm.value) || 0) / 100) * 30;
     
     // Final Project (35%)
     const taScore = parseFloat(inputs.taScore.value) || 0;
@@ -140,7 +140,7 @@ function calculateFinalGrade() {
     const finalProjectScoreOut35 = (finalProjectScore / 100) * 35;
     
     // Bonus (5%) - convert percentage to points
-    const bonusScore = (parseFloat(inputs.bonus.value) / 100) * 5;
+    const bonusScore = ((parseFloat(inputs.bonus.value) || 0) / 100) * 5;
     
     // Total Final Grade
     const finalGrade = labHwScore + midtermScore + finalProjectScoreOut35 + bonusScore;

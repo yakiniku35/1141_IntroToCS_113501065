@@ -25,7 +25,7 @@ function addRow() {
     let mathVal = Number(mathInput.value);
     let engVal = Number(engInput.value);
 
-    if (mathVal === "" || engVal === "" || isNaN(mathVal) || isNaN(engVal)) {
+    if (mathInput.value === "" || engInput.value === "" || isNaN(mathVal) || isNaN(engVal)) {
         alert("Please enter valid numbers.");
         return;
     }
