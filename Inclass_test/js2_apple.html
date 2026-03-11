@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Simulator</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* ─── Reset & Base ─────────────────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
+                         'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #F5F5F7;
+            color: #1D1D1F;
+            min-height: 100vh;
+        }
+
+        /* ─── Header ────────────────────────────────────────────────────── */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 0 24px;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .header-icon { font-size: 22px; }
+        .header-title {
+            font-size: 17px;
+            font-weight: 600;
+            letter-spacing: -0.2px;
+            color: #1D1D1F;
+        }
+
+        /* ─── Page wrapper ──────────────────────────────────────────────── */
+        .page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        /* ─── Hero text ─────────────────────────────────────────────────── */
+        .hero {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            line-height: 1.07;
+            color: #1D1D1F;
+        }
+        .hero p {
+            margin-top: 12px;
+            font-size: 19px;
+            font-weight: 400;
+            color: #86868B;
+            letter-spacing: -0.3px;
+        }
+
+        /* ─── Card ──────────────────────────────────────────────────────── */
+        .card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.07);
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+        .card-title {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #86868B;
+            margin-bottom: 20px;
+        }
+
+        /* ─── Controls bar ──────────────────────────────────────────────── */
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            gap: 16px;
+        }
+
+        /* Label + input group */
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .field label {
+            font-size: 12px;
+            font-weight: 500;
+            color: #86868B;
+            letter-spacing: 0.2px;
+        }
+        .field input[type="number"] {
+            width: 90px;
+            height: 36px;
+            border: 1.5px solid #D2D2D7;
+            border-radius: 10px;
+            padding: 0 12px;
+            font-family: inherit;
+            font-size: 15px;
+            color: #1D1D1F;
+            background: #F5F5F7;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .field input[type="number"]:focus { border-color: #0071E3; }
+
+        /* Speed slider */
+        .field input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 140px;
+            height: 4px;
+            border-radius: 2px;
+            background: #D2D2D7;
+            outline: none;
+            cursor: pointer;
+        }
+        .field input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #0071E3;
+            cursor: pointer;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+            transition: transform 0.15s;
+        }
+        .field input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+        .speed-label { min-width: 54px; font-size: 13px; color: #1D1D1F; }
+
+        /* Speed control wrapper and horizontal field variant */
+        .speed-control-wrapper { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+        .field-horizontal { flex-direction: row; align-items: flex-end; }
+
+        /* Buttons */
+        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; }
+
+        button {
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 500;
+            font-size: 15px;
+            letter-spacing: -0.2px;
+            border-radius: 980px;
+            padding: 8px 22px;
+            transition: background 0.2s, transform 0.15s, opacity 0.2s;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        button:active { transform: scale(0.97); }
+
+        .btn-primary { background: #0071E3; color: #fff; }
+        .btn-primary:hover { background: #0077ED; }
+        .btn-primary:disabled { background: #A1C9F5; cursor: not-allowed; }
+
+        .btn-success { background: #34C759; color: #fff; }
+        .btn-success:hover { background: #30D158; }
+        .btn-success:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .btn-danger { background: #FF3B30; color: #fff; }
+        .btn-danger:hover { background: #FF453A; }
+        .btn-danger:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .btn-neutral { background: #E8E8ED; color: #1D1D1F; }
+        .btn-neutral:hover { background: #D2D2D7; }
+
+        /* ─── Stats summary strip ───────────────────────────────────────── */
+        .stats-strip {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .stat-chip {
+            flex: 1;
+            min-width: 130px;
+            background: #F5F5F7;
+            border-radius: 14px;
+            padding: 16px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .stat-chip .label {
+            font-size: 12px;
+            font-weight: 500;
+            color: #86868B;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+        .stat-chip .value {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #1D1D1F;
+            line-height: 1;
+        }
+        .stat-chip .value.blue { color: #0071E3; }
+
+        /* ─── Dice grid ─────────────────────────────────────────────────── */
+        #diceArea {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+            gap: 10px;
+        }
+        .die-wrap {
+            aspect-ratio: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #F5F5F7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.15s, box-shadow 0.15s;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        }
+        .die-wrap:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+        .die-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: opacity 0.08s;
+            padding: 6px;
+        }
+        .die-wrap.rolling img { animation: spin 0.15s linear infinite; }
+
+        @keyframes spin {
+            0%   { opacity: 1; }
+            50%  { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+
+        /* ─── Statistics table ──────────────────────────────────────────── */
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+        }
+        .stats-table thead tr {
+            border-bottom: 1.5px solid #E8E8ED;
+        }
+        .stats-table th {
+            padding: 10px 16px;
+            text-align: left;
+            font-size: 12px;
+            font-weight: 600;
+            color: #86868B;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+        .stats-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #F5F5F7;
+            color: #1D1D1F;
+            transition: background 0.2s;
+        }
+        .stats-table tbody tr:last-child td { border-bottom: none; }
+        .stats-table tbody tr:hover td { background: #F5F5F7; }
+        .face-dot {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+        .face-dot img { width: 28px; height: 28px; object-fit: contain; }
+
+        /* Progress bar inside table */
+        .pct-bar-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .pct-bar {
+            flex: 1;
+            height: 6px;
+            background: #E8E8ED;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .pct-bar-fill {
+            height: 100%;
+            background: #0071E3;
+            border-radius: 3px;
+            transition: width 0.4s ease;
+        }
+        .pct-text {
+            width: 48px;
+            text-align: right;
+            font-size: 13px;
+            color: #86868B;
+        }
+
+        /* ─── Chart ─────────────────────────────────────────────────────── */
+        .chart-wrap {
+            position: relative;
+            height: 220px;
+        }
+
+        /* ─── Two-column layout ─────────────────────────────────────────── */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        @media (max-width: 720px) {
+            .two-col { grid-template-columns: 1fr; }
+            .controls { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── Header ─────────────────────────────────────────────────────────── -->
+<header>
+    <div class="header-inner">
+        <span class="header-icon">🎲</span>
+        <span class="header-title">Dice Simulator</span>
+    </div>
+</header>
+
+<!-- ── Page ───────────────────────────────────────────────────────────── -->
+<main class="page">
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Roll the Dice.</h1>
+        <p>Beautifully simple probability at your fingertips.</p>
+    </section>
+
+    <!-- Controls card -->
+    <div class="card">
+        <div class="card-title">Controls</div>
+        <div class="controls">
+
+            <!-- Dice count -->
+            <div class="field">
+                <label for="diceCount">Dice count</label>
+                <input type="number" id="diceCount" min="1" max="100" value="20">
+            </div>
+
+            <!-- Speed -->
+            <div class="field">
+                <label for="speedSlider">Roll speed</label>
+                <div class="speed-control-wrapper">
+                    <input type="range" id="speedSlider" min="1" max="10" value="5">
+                    <span class="speed-label" id="speedLabel">Medium</span>
+                </div>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="field field-horizontal">
+                <div class="btn-group">
+                    <button class="btn-primary"  id="rollButton">Roll Once</button>
+                    <button class="btn-success"  id="startButton">Auto Roll</button>
+                    <button class="btn-danger"   id="stopButton"  disabled>Stop</button>
+                    <button class="btn-neutral"  id="resetButton">Reset</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="card" style="padding: 24px 32px;">
+        <div class="stats-strip">
+            <div class="stat-chip">
+                <span class="label">Total Rolls</span>
+                <span class="value blue" id="totalRollsVal">0</span>
+            </div>
+            <div class="stat-chip">
+                <span class="label">Roll Sets</span>
+                <span class="value" id="rollSetsVal">0</span>
+            </div>
+            <div class="stat-chip">
+                <span class="label">Current Average</span>
+                <span class="value" id="avgVal">—</span>
+            </div>
+            <div class="stat-chip">
+                <span class="label">Expected Average</span>
+                <span class="value" style="color:#86868B;">3.500</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dice area -->
+    <div class="card">
+        <div class="card-title">Dice</div>
+        <div id="diceArea"></div>
+    </div>
+
+    <!-- Stats table + Chart -->
+    <div class="two-col">
+
+        <!-- Statistics table -->
+        <div class="card">
+            <div class="card-title">Statistics</div>
+            <table class="stats-table" id="statsTable">
+                <thead>
+                    <tr>
+                        <th>Face</th>
+                        <th>Frequency</th>
+                        <th>Distribution</th>
+                    </tr>
+                </thead>
+                <tbody id="statsBody">
+                    <!-- filled by JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Chart -->
+        <div class="card">
+            <div class="card-title">Average Occurrence Distribution</div>
+            <div class="chart-wrap">
+                <canvas id="avgChart"></canvas>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+<script>
+    // ── State ────────────────────────────────────────────────────────────
+    let diceElements = [];        // DOM img elements
+    let counts       = [0,0,0,0,0,0];
+    let totalRolls   = 0;         // individual die rolls summed
+    let rollSets     = 0;         // how many times rollDice() was called
+    let rolling      = null;
+    let averageCounts = {};
+
+    // Speed mapping: slider value 1–10 → interval ms (slow→fast)
+    const speedMap = {
+        1:  800, 2: 500, 3: 300, 4: 150, 5: 80,
+        6:  50,  7:  30, 8:  20, 9:  15, 10: 10
+    };
+    const speedLabels = {
+        1: 'Slowest', 2: 'Slow', 3: 'Slow+', 4: 'Medium−', 5: 'Medium',
+        6: 'Medium+', 7: 'Fast',  8: 'Fast+',  9: 'Faster', 10: 'Fastest'
+    };
+
+    // ── Chart ────────────────────────────────────────────────────────────
+    let avgChart = null;
+
+    const chartColors = {
+        bar:    'rgba(0, 113, 227, 0.75)',
+        border: 'rgba(0, 113, 227, 1)'
+    };
+
+    function initChart() {
+        const ctx = document.getElementById('avgChart').getContext('2d');
+        avgChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Occurrences',
+                    data: [],
+                    backgroundColor: chartColors.bar,
+                    borderColor: chartColors.border,
+                    borderWidth: 1.5,
+                    borderRadius: 6,
+                    borderSkipped: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: 'rgba(29,29,31,0.85)',
+                        titleFont: { family: '-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif', size: 13 },
+                        bodyFont:  { family: '-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif', size: 12 },
+                        cornerRadius: 10,
+                        padding: 10
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: '#86868B', font: { size: 11 } },
+                        grid: { display: false }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: { color: '#86868B', font: { size: 11 }, stepSize: 1 },
+                        grid: { color: 'rgba(0,0,0,0.05)' }
+                    }
+                }
+            }
+        });
+    }
+
+    function updateChart() {
+        const keys   = Object.keys(averageCounts).sort((a, b) => parseFloat(a) - parseFloat(b));
+        const values = keys.map(k => averageCounts[k]);
+        avgChart.data.labels           = keys;
+        avgChart.data.datasets[0].data = values;
+        avgChart.update('none'); // skip animation for performance
+    }
+
+    // ── Dice rendering ───────────────────────────────────────────────────
+    function buildDice(count) {
+        const area = document.getElementById('diceArea');
+        area.innerHTML = '';
+        diceElements   = [];
+
+        for (let i = 0; i < count; i++) {
+            const wrap = document.createElement('div');
+            wrap.className = 'die-wrap';
+
+            const img  = document.createElement('img');
+            const face = Math.floor(Math.random() * 6) + 1; // random initial face
+            img.src = `dice/die${face}.png`;
+            img.alt = `die${face}`;
+
+            wrap.appendChild(img);
+            area.appendChild(wrap);
+            diceElements.push(img);
+        }
+    }
+
+    // ── Roll logic ───────────────────────────────────────────────────────
+    function rollDice() {
+        diceElements.forEach(img => {
+            const value = Math.floor(Math.random() * 6) + 1;
+            img.src = `dice/die${value}.png`;
+            img.alt = `die${value}`;
+            counts[value - 1]++;
+            totalRolls++;
+        });
+
+        rollSets++;
+        updateStats();
+        updateChart();
+    }
+
+    function startRolling() {
+        if (rolling !== null) return;
+
+        const speed = parseInt(document.getElementById('speedSlider').value, 10);
+        const ms    = speedMap[speed] || 80;
+
+        // Add rolling animation
+        diceElements.forEach(img => img.parentElement.classList.add('rolling'));
+
+        rolling = setInterval(rollDice, ms);
+
+        // Update button states
+        document.getElementById('startButton').disabled = true;
+        document.getElementById('stopButton').disabled  = false;
+        document.getElementById('rollButton').disabled  = true;
+    }
+
+    function stopRolling() {
+        clearInterval(rolling);
+        rolling = null;
+
+        // Remove rolling animation
+        diceElements.forEach(img => img.parentElement.classList.remove('rolling'));
+
+        // Update button states
+        document.getElementById('startButton').disabled = false;
+        document.getElementById('stopButton').disabled  = true;
+        document.getElementById('rollButton').disabled  = false;
+    }
+
+    function resetAll() {
+        stopRolling();
+        counts        = [0,0,0,0,0,0];
+        totalRolls    = 0;
+        rollSets      = 0;
+        averageCounts = {};
+
+        // Rebuild dice with current count setting
+        const count = parseInt(document.getElementById('diceCount').value, 10) || 20;
+        buildDice(Math.min(Math.max(count, 1), 100));
+
+        updateStats();
+        updateChart();
+    }
+
+    // ── Stats display ────────────────────────────────────────────────────
+    function updateStats() {
+        // Summary strip
+        document.getElementById('totalRollsVal').textContent = totalRolls.toLocaleString();
+        document.getElementById('rollSetsVal').textContent   = rollSets.toLocaleString();
+
+        let avg = '—';
+        if (totalRolls > 0) {
+            let sum = 0;
+            for (let i = 1; i <= 6; i++) sum += counts[i - 1] * i;
+            avg = (sum / totalRolls).toFixed(3);
+
+            // Track average occurrences for chart
+            averageCounts[avg] = (averageCounts[avg] || 0) + 1;
+        }
+        document.getElementById('avgVal').textContent = avg;
+
+        // Table rows — build array then join to avoid repeated innerHTML concatenation
+        const tbody = document.getElementById('statsBody');
+        const rows = [];
+        for (let i = 1; i <= 6; i++) {
+            const freq    = counts[i - 1];
+            const pct     = totalRolls > 0 ? ((freq / totalRolls) * 100) : 0;
+            const pctText = totalRolls > 0 ? pct.toFixed(1) + '%' : '—';
+
+            rows.push(`
+                <tr>
+                    <td>
+                        <div class="face-dot">
+                            <img src="dice/die${i}.png" alt="die${i}"> ${i}
+                        </div>
+                    </td>
+                    <td>${freq.toLocaleString()}</td>
+                    <td>
+                        <div class="pct-bar-wrap">
+                            <div class="pct-bar">
+                                <div class="pct-bar-fill" style="width:${pct.toFixed(1)}%"></div>
+                            </div>
+                            <span class="pct-text">${pctText}</span>
+                        </div>
+                    </td>
+                </tr>`);
+        }
+        tbody.innerHTML = rows.join('');
+
+    // ── Speed slider label ───────────────────────────────────────────────
+    function updateSpeedLabel() {
+        const val = parseInt(document.getElementById('speedSlider').value, 10);
+        document.getElementById('speedLabel').textContent = speedLabels[val] || 'Medium';
+    }
+
+    // ── Dice count change ────────────────────────────────────────────────
+    function onDiceCountChange() {
+        if (rolling !== null) return; // don't rebuild while rolling
+        let count = parseInt(this.value, 10);
+        if (isNaN(count) || count < 1)   count = 1;
+        if (count > 100) count = 100;
+        this.value = count;
+        buildDice(count);
+    }
+
+    // ── Init ─────────────────────────────────────────────────────────────
+    window.addEventListener('DOMContentLoaded', () => {
+        buildDice(20);
+        updateStats();
+        initChart();
+
+        document.getElementById('rollButton').addEventListener('click', rollDice);
+        document.getElementById('startButton').addEventListener('click', startRolling);
+        document.getElementById('stopButton').addEventListener('click', stopRolling);
+        document.getElementById('resetButton').addEventListener('click', resetAll);
+        document.getElementById('speedSlider').addEventListener('input', updateSpeedLabel);
+        document.getElementById('diceCount').addEventListener('change', onDiceCountChange);
+
+        updateSpeedLabel();
+    });
+</script>
+
+</body>
+</html>
